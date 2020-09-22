@@ -68,7 +68,7 @@ public class RegisterFragment extends Fragment {
                 loginFragment.setArguments(arguments);
 
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment, loginFragment);
+                transaction.replace(R.id.fragment_login, loginFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
 

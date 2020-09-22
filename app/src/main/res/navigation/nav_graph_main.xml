@@ -15,37 +15,16 @@
         android:id="@+id/shoppingListFragment"
         android:name="no.hiof.snailey.familyplaner.ShoppingListFragment"
         android:label="fragment_shopping_list"
-        tools:layout="@layout/fragment_shopping_list" >
-        <action
-            android:id="@+id/action_shoppingListFragment_to_toDoFragment2"
-            app:destination="@id/toDoFragment" />
-        <action
-            android:id="@+id/action_shoppingListFragment_to_calendarFragment2"
-            app:destination="@id/calendarFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_shopping_list" />
     <fragment
         android:id="@+id/toDoFragment"
         android:name="no.hiof.snailey.familyplaner.ToDoFragment"
         android:label="fragment_to_do"
-        tools:layout="@layout/fragment_to_do" >
-        <action
-            android:id="@+id/action_toDoFragment_to_shoppingListFragment2"
-            app:destination="@id/shoppingListFragment" />
-        <action
-            android:id="@+id/action_toDoFragment_to_calendarFragment2"
-            app:destination="@id/calendarFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_to_do" />
     <fragment
         android:id="@+id/calendarFragment"
         android:name="no.hiof.snailey.familyplaner.CalendarFragment"
         android:label="fragment_calendar"
-        tools:layout="@layout/fragment_calendar" >
-        <action
-            android:id="@+id/action_calendarFragment_to_shoppingListFragment2"
-            app:destination="@id/shoppingListFragment" />
-        <action
-            android:id="@+id/action_calendarFragment_to_toDoFragment2"
-            app:destination="@id/toDoFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_calendar" />
 
 </navigation>

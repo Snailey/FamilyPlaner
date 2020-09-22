@@ -15,11 +15,11 @@ import android.widget.Button;
 
 public class LogInFragment extends Fragment {
 
+
     public static final String KEY_NAME = "userID";
 
     //moc userID - get from Firebase
     private String userID = "12345";
-
 
 
     @Override
@@ -68,7 +68,7 @@ public class LogInFragment extends Fragment {
                     registerFragment.setArguments(arguments);
 
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment, registerFragment);
+                    transaction.replace(R.id.fragment_login, registerFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
 
