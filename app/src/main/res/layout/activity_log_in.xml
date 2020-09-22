@@ -9,11 +9,12 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="no.hiof.snailey.familyplaner.LogInFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph_login"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="284dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
