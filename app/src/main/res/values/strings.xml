@@ -11,6 +11,8 @@
     //drawer
     <string name="settings">Innstillinger</string>
     <string name="drawer_header">Drawer Header</string>
+    <string name="logout">Logg Ut</string>
+
 
 
 </resources>
