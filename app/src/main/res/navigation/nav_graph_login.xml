@@ -13,7 +13,6 @@
     <fragment
         android:id="@+id/logInFragment"
         android:name="no.hiof.snailey.familyplaner.LogInFragment"
-        android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" />
     <fragment
         android:id="@+id/registerFragment"

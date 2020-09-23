@@ -14,17 +14,17 @@
     <fragment
         android:id="@+id/shoppingListFragment"
         android:name="no.hiof.snailey.familyplaner.ShoppingListFragment"
-        android:label="fragment_shopping_list"
+        android:label="Handleliste"
         tools:layout="@layout/fragment_shopping_list" />
     <fragment
         android:id="@+id/toDoFragment"
         android:name="no.hiof.snailey.familyplaner.ToDoFragment"
-        android:label="fragment_to_do"
+        android:label="ToDo's"
         tools:layout="@layout/fragment_to_do" />
     <fragment
         android:id="@+id/calendarFragment"
         android:name="no.hiof.snailey.familyplaner.CalendarFragment"
-        android:label="fragment_calendar"
+        android:label="Kalender"
         tools:layout="@layout/fragment_calendar" />
 
 </navigation>
