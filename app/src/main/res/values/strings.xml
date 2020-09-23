@@ -3,14 +3,14 @@
     <string name="title_activity_log_in">LogInActivity</string>
 
 
-
     //Bottomnavigation
     <string name="calender">Kalender</string>
     <string name="shopinglist">Handleliste</string>
     <string name="todo">ToDo</string>
 
     //drawer
-    <string name="drawer_header">Familie Ordnær\'n</string>
+    <string name="settings">Innstillinger</string>
+    <string name="drawer_header">Drawer Header</string>
 
 
 </resources>

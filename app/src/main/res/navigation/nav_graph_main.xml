@@ -26,5 +26,10 @@
         android:name="no.hiof.snailey.familyplaner.CalendarFragment"
         android:label="Kalender"
         tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="no.hiof.snailey.familyplaner.SettingsFragment"
+        android:label="Instillinger"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>
