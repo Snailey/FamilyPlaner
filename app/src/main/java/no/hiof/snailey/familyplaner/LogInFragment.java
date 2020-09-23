@@ -2,12 +2,10 @@ package no.hiof.snailey.familyplaner;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +13,14 @@ import android.widget.Button;
 
 public class LogInFragment extends Fragment {
 
-
     public static final String KEY_NAME = "userID";
-
     //moc userID - get from Firebase
     private String userID = "12345";
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +36,6 @@ public class LogInFragment extends Fragment {
         Button btn_login = view.findViewById(R.id.btn_register);
         Button btn_register = view.findViewById(R.id.btn_cancel);
 
-
         //take user to MainActivity
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +47,6 @@ public class LogInFragment extends Fragment {
 
             }
         });
-
 
         //take user to Register_Fragment
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -71,8 +63,6 @@ public class LogInFragment extends Fragment {
                     transaction.replace(R.id.fragment_login, registerFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
-
-
                 }
 
         });

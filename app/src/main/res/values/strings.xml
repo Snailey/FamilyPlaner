@@ -9,5 +9,8 @@
     <string name="shopinglist">Handleliste</string>
     <string name="todo">ToDo</string>
 
+    //drawer
+    <string name="drawer_header">Familie Ordnær\'n</string>
+
 
 </resources>
