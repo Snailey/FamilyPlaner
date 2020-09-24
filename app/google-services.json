@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "933995262607",
+    "firebase_url": "https://familyplaner-3842b.firebaseio.com",
+    "project_id": "familyplaner-3842b",
+    "storage_bucket": "familyplaner-3842b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933995262607:android:b193d6989ebf3801d176fa",
+        "android_client_info": {
+          "package_name": "no.hiof.snailey.familyplaner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933995262607-q030gt1unaj7iim2pokabpuufhjsm00j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIZn01mSd7AxaNdnpXqtK9YsXRCJ1QIk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933995262607-q030gt1unaj7iim2pokabpuufhjsm00j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
