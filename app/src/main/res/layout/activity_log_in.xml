@@ -8,14 +8,76 @@
     tools:context=".LogInActivity"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-    <fragment
-        android:id="@+id/fragment_login"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph_login"
-        tools:layout_editor_absoluteX="209dp"
-        tools:layout_editor_absoluteY="284dp" />
+    <EditText
+        android:id="@+id/text_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="passord"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_email" />
+
+    <EditText
+        android:id="@+id/text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:hint="epost"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Logg Inn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_password" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Registrer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Brukernavn:"
+        app:layout_constraintBottom_toTopOf="@+id/text_email"
+        app:layout_constraintStart_toStartOf="@+id/text_email" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="57dp"
+        android:layout_height="13dp"
+        android:layout_marginBottom="10dp"
+        android:text="Passord:"
+        app:layout_constraintBottom_toTopOf="@+id/text_password"
+        app:layout_constraintStart_toStartOf="@+id/text_password" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="Ny bruker?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
