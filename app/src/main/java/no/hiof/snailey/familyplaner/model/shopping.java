@@ -7,6 +7,8 @@ public class shopping {
     private boolean active;
     private String family;
 
+    public shopping() {};
+
     public shopping(String title, int number, boolean active, String family) {
         this.title = title;
         this.number = number;
