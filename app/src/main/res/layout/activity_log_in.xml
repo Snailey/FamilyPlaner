@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogInActivity"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+    >
 
     <EditText
         android:id="@+id/text_password"
@@ -56,7 +56,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:text="Brukernavn:"
         app:layout_constraintBottom_toTopOf="@+id/text_email"
         app:layout_constraintStart_toStartOf="@+id/text_email" />
@@ -65,7 +65,7 @@
         android:id="@+id/textView2"
         android:layout_width="57dp"
         android:layout_height="13dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="16dp"
         android:text="Passord:"
         app:layout_constraintBottom_toTopOf="@+id/text_password"
         app:layout_constraintStart_toStartOf="@+id/text_password" />

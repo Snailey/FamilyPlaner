@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">FamilyPlaner</string>
-    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="app_name">Familie Ordnær\'n</string>
+
 
 
     //Bottomnavigation
@@ -13,8 +13,14 @@
     <string name="drawer_header">Drawer Header</string>
     <string name="logout">Logg Ut</string>
     <string name="slett_oppgaven">Slett Oppgaven</string>
+
+
+
+    //recyclerView
     <string name="open">open</string>
     <string name="close">close</string>
-
+    <string name="delete">delete</string>
+    <string name="subtract">subtract</string>
+    <string name="add">add</string>
 
 </resources>

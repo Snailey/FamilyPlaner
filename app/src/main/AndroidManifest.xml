@@ -18,7 +18,8 @@
         <activity android:name=".CalendarActivity" />
         <activity
             android:name=".LogInActivity"
-            android:label="@string/title_activity_log_in">
+            >
+            android:theme="@style/AppTheme.NoActionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
