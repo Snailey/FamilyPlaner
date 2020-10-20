@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:autoText="false"
         android:ems="10"
         android:hint="passord"
         android:inputType="textPassword"
@@ -56,16 +57,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Brukernavn:"
+        android:text="E-postadresse"
         app:layout_constraintBottom_toTopOf="@+id/text_email"
         app:layout_constraintStart_toStartOf="@+id/text_email" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="57dp"
-        android:layout_height="13dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Passord:"
         app:layout_constraintBottom_toTopOf="@+id/text_password"
         app:layout_constraintStart_toStartOf="@+id/text_password" />

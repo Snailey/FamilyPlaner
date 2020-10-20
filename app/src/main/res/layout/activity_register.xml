@@ -45,34 +45,34 @@ tools:context=".RegisterActivity">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
-<EditText
-    android:id="@+id/text_name"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="100dp"
-    android:ems="10"
-    android:hint="epost"
-    android:inputType="textEmailAddress"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.502"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Fult Navn"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Brukernavn:"
-    app:layout_constraintBottom_toTopOf="@+id/text_email"
-    app:layout_constraintStart_toStartOf="@+id/text_email" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-postadresse:"
+        app:layout_constraintBottom_toTopOf="@+id/text_email"
+        app:layout_constraintStart_toStartOf="@+id/text_email" />
 
-<TextView
-    android:id="@+id/textView6"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Navn:"
-    app:layout_constraintBottom_toTopOf="@+id/text_name"
-    app:layout_constraintStart_toStartOf="@+id/text_name" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Navn:"
+        app:layout_constraintBottom_toTopOf="@+id/text_name"
+        app:layout_constraintStart_toStartOf="@+id/text_name" />
 
 <Button
     android:id="@+id/btn_login"
@@ -94,21 +94,21 @@ tools:context=".RegisterActivity">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
-<TextView
-    android:id="@+id/textView2"
-    android:layout_width="57dp"
-    android:layout_height="13dp"
-    android:text="Passord:"
-    app:layout_constraintBottom_toTopOf="@+id/text_password"
-    app:layout_constraintStart_toStartOf="@+id/text_password" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passord:"
+        app:layout_constraintBottom_toTopOf="@+id/text_password"
+        app:layout_constraintStart_toStartOf="@+id/text_password" />
 
-<TextView
-    android:id="@+id/textView4"
-    android:layout_width="57dp"
-    android:layout_height="13dp"
-    android:text="Familiekode:"
-    app:layout_constraintBottom_toTopOf="@+id/text_familycode"
-    app:layout_constraintStart_toStartOf="@+id/text_familycode" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Familiekode:"
+        app:layout_constraintBottom_toTopOf="@+id/text_familycode"
+        app:layout_constraintStart_toStartOf="@+id/text_familycode" />
 
 <TextView
     android:id="@+id/textView5"
