@@ -41,6 +41,11 @@
     <string name="abort">Avbryt</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="subtract">Subtract</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="surname">Surename</string>
+    <string name="enter_your_surname">Enter your surename</string>
+    <string name="ok">OK</string>
 
 
 </resources>

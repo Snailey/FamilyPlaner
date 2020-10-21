@@ -31,8 +31,8 @@ class LogInActivity : AppCompatActivity() {
 
         SignInMail = findViewById(R.id.text_email);
         SignInPass = findViewById(R.id.text_password);
-        SignInButton = findViewById<Button>(R.id.btn_login)
-        RegisterButton = findViewById<Button>(R.id.btn_register)
+        SignInButton = findViewById<Button>(R.id.btn_register)
+        RegisterButton = findViewById<Button>(R.id.btn_cancel)
 
         SignInButton!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -76,6 +76,20 @@ class LogInActivity : AppCompatActivity() {
             }
         })
 
-
+        RegisterButton!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                NavigateSignUp()
+            }
+        })
     }
+
+    fun NavigateSignUp() {
+        val inent = Intent(this, RegisterActivity::class.java)
+        startActivity(inent)
+    }
+
+    /*fun NavigateForgetMyPassword(v: View?) {
+        val inent = Intent(this, ResetPasswordActivity::class.java)
+        startActivity(inent)
+    }*/
 }
