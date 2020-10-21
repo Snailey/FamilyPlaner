@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_nav"
+    app:startDestination="@id/calendarFragment">
+    <fragment
+        android:id="@+id/shoppingsFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.shopping.ShoppingsFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping" />
+    <fragment
+        android:id="@+id/toDosFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.todo.ToDosFragment"
+        android:label="fragment_todos"
+        tools:layout="@layout/fragment_todos" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
+</navigation>

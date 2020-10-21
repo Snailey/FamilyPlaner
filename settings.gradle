@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "FamilyPlaner"
+rootProject.name = "familyplaner"
