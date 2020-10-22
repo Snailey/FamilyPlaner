@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import no.hiof.snailey.familyplaner.R
 
 
@@ -28,6 +29,9 @@ class LogInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance();
+        auth!!.addAuthStateListener(authStateListener);
+
+
 
         SignInMail = findViewById(R.id.text_email);
         SignInPass = findViewById(R.id.text_password);
@@ -82,6 +86,17 @@ class LogInActivity : AppCompatActivity() {
             }
         })
     }
+
+    var authStateListener =
+        AuthStateListener { firebaseAuth ->
+            val firebaseUser = firebaseAuth.currentUser
+
+            if (firebaseUser != null) {
+                val intent = Intent(this@LogInActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
 
     fun NavigateSignUp() {
         val inent = Intent(this, RegisterActivity::class.java)

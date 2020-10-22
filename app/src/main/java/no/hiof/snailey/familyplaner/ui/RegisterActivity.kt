@@ -12,11 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.dialog_fragment_add_shopping.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.Shopping
-import no.hiof.snailey.familyplaner.data.User
-
 
 class RegisterActivity : AppCompatActivity() {
 

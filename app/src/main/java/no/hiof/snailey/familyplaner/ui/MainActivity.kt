@@ -1,7 +1,9 @@
 package no.hiof.snailey.familyplaner.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment
@@ -19,32 +22,46 @@ import no.hiof.snailey.familyplaner.ui.todo.ToDosFragment
 
 class MainActivity : AppCompatActivity() {
 
+
+    var LogOutButton: Button? = null
+    private var auth: FirebaseAuth? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //bottomnavigation
-        setupNavigation()
+        auth = FirebaseAuth.getInstance();
 
 
-        //mainnavigation
-        setSupportActionBar(findViewById(R.id.toolbar))
+            LogOutButton = findViewById<Button>(R.id.logout_btn)
+            LogOutButton!!.setOnClickListener {
 
-        navigation_view.setNavigationItemSelectedListener{
-            when (it.itemId) {
-                R.id.home -> {
-                    true
-                }
             }
-            true
+
+
+            //bottomnavigation
+            setupNavigation()
+
+
+            //mainnavigation
+            setSupportActionBar(findViewById(R.id.toolbar))
+
+            navigation_view.setNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.home -> {
+                        true
+                    }
+                }
+                true
+            }
+
+            val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
+            drawer.addDrawerListener(drawerToggle)
+            drawerToggle.syncState()
+
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
-
-        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
-        drawer.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
 
     //main navigation
 

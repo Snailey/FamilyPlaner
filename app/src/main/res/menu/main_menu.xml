@@ -14,7 +14,7 @@
     <item android:title="Logg ut">
         <menu>
             <item
-                android:id="@+id/logout"
+                android:id="@+id/logout_btn"
                 android:icon="@drawable/ic_logout"
                 android:title="Logg ut" />
         </menu>
