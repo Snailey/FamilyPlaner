@@ -1,8 +1,11 @@
 package no.hiof.snailey.familyplaner.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -19,7 +22,7 @@ import no.hiof.snailey.familyplaner.ui.todo.ToDosFragment
 class MainActivity : AppCompatActivity() {
 
 
-    var LogOutButton: Button? = null
+    var logOutButton: Button? = null
     private var auth: FirebaseAuth? = null
 
 
@@ -28,15 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         auth = FirebaseAuth.getInstance();
-
-
-            LogOutButton = findViewById<Button>(R.id.logout_btn)
-
-            //LogOutButton!!.setOnClickListener {
-
-                //logout()
-            //}
-
 
             //bottomnavigation
             setupNavigation()
@@ -49,6 +43,9 @@ class MainActivity : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.home -> {
                         true
+                    }
+                    R.id.logout_btn -> {
+                        logout()
                     }
                 }
                 true
@@ -128,8 +125,11 @@ class MainActivity : AppCompatActivity() {
 
         //AuthUI.getInstance().signOut(getApplicationContext())
 
-        //FirebaseAuth.getInstance().signOut()
+        FirebaseAuth.getInstance().signOut()
         //val intent = Intent(this, MainActivity::class.java)
         //LogInActivity()
+
+        val intent = Intent(this, LogInActivity::class.java)
+        startActivity(intent)
     }
 }
