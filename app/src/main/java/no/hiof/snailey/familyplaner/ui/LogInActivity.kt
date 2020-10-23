@@ -91,11 +91,11 @@ class LogInActivity : AppCompatActivity() {
         AuthStateListener { firebaseAuth ->
             val firebaseUser = firebaseAuth.currentUser
 
-            if (firebaseUser != null) {
-                val intent = Intent(this@LogInActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
+            //if (firebaseUser != null) {
+            //    val intent = Intent(this@LogInActivity, MainActivity::class.java)
+            //    startActivity(intent)
+            //    finish()
+            //}
         }
 
     fun NavigateSignUp() {

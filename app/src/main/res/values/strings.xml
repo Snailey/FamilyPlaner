@@ -46,6 +46,12 @@
     <string name="surname">Surename</string>
     <string name="enter_your_surname">Enter your surename</string>
     <string name="ok">OK</string>
+    <string name="demo_date_boundaries">Calendar Demo</string>
+    <string name="selection_mode_none">Ingen valgt</string>
+    <string name="selection_mode_single">En Valgt</string>
+    <string name="selection_mode_multiple">Flere Valgt</string>
+    <string name="selection_mode_range">Range</string>
+    <string name="selection_mode_week">Uke</string>
 
 
 </resources>

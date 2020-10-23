@@ -1,17 +1,13 @@
 package no.hiof.snailey.familyplaner.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import no.hiof.snailey.familyplaner.R
@@ -35,9 +31,11 @@ class MainActivity : AppCompatActivity() {
 
 
             LogOutButton = findViewById<Button>(R.id.logout_btn)
-            LogOutButton!!.setOnClickListener {
 
-            }
+            //LogOutButton!!.setOnClickListener {
+
+                //logout()
+            //}
 
 
             //bottomnavigation
@@ -121,5 +119,17 @@ class MainActivity : AppCompatActivity() {
     fun switchToCalendarFragment() {
         val manager: FragmentManager = supportFragmentManager
         manager.beginTransaction().replace(R.id.fragment, CalendarFragment()).commit()
+    }
+
+    fun logout() {
+
+        //var uid = user.getUid()
+
+
+        //AuthUI.getInstance().signOut(getApplicationContext())
+
+        //FirebaseAuth.getInstance().signOut()
+        //val intent = Intent(this, MainActivity::class.java)
+        //LogInActivity()
     }
 }
