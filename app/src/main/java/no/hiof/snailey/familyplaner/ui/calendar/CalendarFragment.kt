@@ -73,31 +73,31 @@ class CalendarFragment : Fragment() {
 
         repeat(10) {
             eventItems += EventItem(
-                eventName = "Event #1",
+                name = "Event #1",
                 date = CalendarDate(calendar.time),
                 color = context.getColorInt(R.color.event_1_color)
             )
 
             eventItems += EventItem(
-                eventName = "Event #2",
+                name = "Event #2",
                 date = CalendarDate(calendar.time),
                 color = context.getColorInt(R.color.event_2_color)
             )
 
             eventItems += EventItem(
-                eventName = "Event #3",
+                name = "Event #3",
                 date = CalendarDate(calendar.time),
                 color = context.getColorInt(R.color.event_3_color)
             )
 
             eventItems += EventItem(
-                eventName = "Event #4",
+                name = "Event #4",
                 date = CalendarDate(calendar.time),
                 color = context.getColorInt(R.color.event_4_color)
             )
 
             eventItems += EventItem(
-                eventName = "Event #5",
+                name = "Event #5",
                 date = CalendarDate(calendar.time),
                 color = context.getColorInt(R.color.event_5_color)
             )

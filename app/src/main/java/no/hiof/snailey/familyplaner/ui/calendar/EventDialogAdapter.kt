@@ -28,10 +28,10 @@ class EventDialogAdapter(
 
             eventCard = view.findViewById(R.id.EventCard);
             view.findViewById<View>(R.id.colorView).setBackgroundColor(eventItem.color)
-            view.findViewById<TextView>(R.id.eventNameView).text = eventItem.eventName
+            view.findViewById<TextView>(R.id.eventNameView).text = eventItem.name
 
             eventCard!!.setOnClickListener(View.OnClickListener {
-                Toast.makeText(context,  "Du trykket på " + eventItem.eventName , Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,  "Du trykket på " + eventItem.name , Toast.LENGTH_SHORT).show()
 
             })
 

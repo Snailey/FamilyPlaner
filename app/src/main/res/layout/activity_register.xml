@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_email" />
 
     <EditText
-        android:id="@+id/text_familycode"
+        android:id="@+id/text_family"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -86,7 +86,7 @@
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_familycode" />
+        app:layout_constraintTop_toBottomOf="@+id/text_family" />
 
     <Button
         android:id="@+id/btn_cancel"
@@ -111,8 +111,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/familycode"
-        app:layout_constraintBottom_toTopOf="@+id/text_familycode"
-        app:layout_constraintStart_toStartOf="@+id/text_familycode" />
+        app:layout_constraintBottom_toTopOf="@+id/text_family"
+        app:layout_constraintStart_toStartOf="@+id/text_family" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

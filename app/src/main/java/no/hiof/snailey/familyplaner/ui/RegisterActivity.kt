@@ -12,17 +12,23 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import no.hiof.snailey.familyplaner.R
+import no.hiof.snailey.familyplaner.data.NODE_USER
+import no.hiof.snailey.familyplaner.data.User
+
 
 class RegisterActivity : AppCompatActivity() {
 
     var SignUpMail: EditText? = null
     var SignUpPass:EditText? = null
     var text_name:EditText? = null
-    var text_familycode:EditText? = null
+    var text_family:EditText? = null
     var SignUpButton: Button? = null
     var CancelButton: Button? = null
     private var auth: FirebaseAuth? = null
+
+    private val dbUser = FirebaseDatabase.getInstance().getReference(NODE_USER)
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
         SignUpMail = findViewById(R.id.text_email)
         SignUpPass = findViewById(R.id.text_password)
         text_name = findViewById(R.id.text_name)
-        text_familycode = findViewById(R.id.text_familycode)
+        text_family = findViewById(R.id.text_family)
         auth = FirebaseAuth.getInstance()
         SignUpButton = findViewById<Button>(R.id.btn_register)
         CancelButton = findViewById<Button>(R.id.btn_cancel)
@@ -69,9 +75,8 @@ class RegisterActivity : AppCompatActivity() {
                                 Toast.makeText(this@RegisterActivity, "ERROR", Toast.LENGTH_LONG)
                                     .show()
                             } else {
+                                registerUserInfo()
                                 startActivity(
-                                    //Add user info to uid/user
-
                                     Intent(
                                         this@RegisterActivity,
                                         MainActivity::class.java
@@ -84,11 +89,30 @@ class RegisterActivity : AppCompatActivity() {
         })
 
 
-
         //take user to RegisterFragment
        CancelButton!!.setOnClickListener {
                 val intent = Intent(applicationContext, LogInActivity::class.java)
                 startActivity(intent)
         }
     }
+
+    private fun registerUserInfo() {
+        val name = text_name?.text.toString().trim()
+        val email = SignUpMail?.text.toString().trim()
+        val family = text_family?.text.toString().trim()
+        //val userId =
+
+        val user = auth?.currentUser
+        val userId = user!!.uid
+
+        val newUser = User(userId, name, email, family)
+
+        dbUser.child(userId).setValue(newUser)
+
+
+        Toast.makeText(this, "Brukeren er lagret $userId", Toast.LENGTH_SHORT).show()
+
+    }
+
 }
+

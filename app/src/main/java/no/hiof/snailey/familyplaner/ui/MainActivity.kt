@@ -4,16 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import no.hiof.snailey.familyplaner.R
+import no.hiof.snailey.familyplaner.data.NODE_USER
 import no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment
 import no.hiof.snailey.familyplaner.ui.shopping.ShoppingsFragment
 import no.hiof.snailey.familyplaner.ui.todo.ToDosFragment
@@ -21,22 +23,22 @@ import no.hiof.snailey.familyplaner.ui.todo.ToDosFragment
 
 class MainActivity : AppCompatActivity() {
 
-
-    var logOutButton: Button? = null
     private var auth: FirebaseAuth? = null
-
+    private var userName: TextView? = null
+    private var userEmail: TextView? = null
+    private var userFamily: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val dbUser = FirebaseDatabase.getInstance().getReference(NODE_USER)
 
         auth = FirebaseAuth.getInstance();
 
-            //bottomnavigation
+    //bottom navigation
             setupNavigation()
 
-
-            //mainnavigation
+    //main navigation
             setSupportActionBar(findViewById(R.id.toolbar))
 
             navigation_view.setNavigationItemSelectedListener {
@@ -56,7 +58,29 @@ class MainActivity : AppCompatActivity() {
             drawerToggle.syncState()
 
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        }
+
+    //Navigation header
+        val navigationView = findViewById<NavigationView>(R.id.navigation_view)
+        var header: View = navigationView.inflateHeaderView(R.layout.nav_header_main)
+
+        userName = header.findViewById<TextView>(R.id.header_name) as TextView
+        userEmail = header.findViewById<TextView>(R.id.header_email) as TextView
+        userFamily = header.findViewById<TextView>(R.id.header_family) as TextView
+
+
+        //Get auth uid
+        val user = auth?.currentUser
+        val userId = user!!.uid
+
+        //Get Firebase User Data...
+
+
+        //Put user.data
+        userName!!.setText("name").toString()
+        userEmail!!.setText("email").toString()
+        userFamily!!.setText("family").toString()
+        
+    }
 
     //main navigation
 
@@ -103,31 +127,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun switchToToDoFragment() {
+    private fun switchToToDoFragment() {
         val manager: FragmentManager = supportFragmentManager
         manager.beginTransaction().replace(R.id.fragment, ToDosFragment()).commit()
     }
 
-    fun switchToShoppingFragment() {
+    private fun switchToShoppingFragment() {
         val manager: FragmentManager = supportFragmentManager
         manager.beginTransaction().replace(R.id.fragment, ShoppingsFragment()).commit()
     }
 
-    fun switchToCalendarFragment() {
+    private fun switchToCalendarFragment() {
         val manager: FragmentManager = supportFragmentManager
         manager.beginTransaction().replace(R.id.fragment, CalendarFragment()).commit()
     }
 
-    fun logout() {
-
-        //var uid = user.getUid()
-
-
-        //AuthUI.getInstance().signOut(getApplicationContext())
+    private fun logout() {
 
         FirebaseAuth.getInstance().signOut()
-        //val intent = Intent(this, MainActivity::class.java)
-        //LogInActivity()
 
         val intent = Intent(this, LogInActivity::class.java)
         startActivity(intent)

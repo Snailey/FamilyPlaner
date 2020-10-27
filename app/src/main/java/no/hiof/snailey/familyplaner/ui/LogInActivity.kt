@@ -17,10 +17,10 @@ import no.hiof.snailey.familyplaner.R
 
 class LogInActivity : AppCompatActivity() {
 
-    private var SignInMail: EditText? = null
-    private var SignInPass:EditText? = null
-    private var SignInButton: Button? = null
-    private var RegisterButton: Button? = null
+    private var signInMail: EditText? = null
+    private var signInPass:EditText? = null
+    private var signInButton: Button? = null
+    private var registerButton: Button? = null
     private var auth: FirebaseAuth? = null
 
 
@@ -33,15 +33,15 @@ class LogInActivity : AppCompatActivity() {
 
 
 
-        SignInMail = findViewById(R.id.text_email);
-        SignInPass = findViewById(R.id.text_password);
-        SignInButton = findViewById<Button>(R.id.btn_register)
-        RegisterButton = findViewById<Button>(R.id.btn_cancel)
+        signInMail = findViewById(R.id.text_email);
+        signInPass = findViewById(R.id.text_password);
+        signInButton = findViewById<Button>(R.id.btn_register)
+        registerButton = findViewById<Button>(R.id.btn_cancel)
 
-        SignInButton!!.setOnClickListener(object : View.OnClickListener {
+        signInButton!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                val email = SignInMail!!.text.toString()
-                val password = SignInPass!!.text.toString()
+                val email = signInMail!!.text.toString()
+                val password = signInPass!!.text.toString()
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(
                         applicationContext,
@@ -80,14 +80,14 @@ class LogInActivity : AppCompatActivity() {
             }
         })
 
-        RegisterButton!!.setOnClickListener(object : View.OnClickListener {
+        registerButton!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                NavigateSignUp()
+                navigateSignUp()
             }
         })
     }
 
-    var authStateListener =
+    private var authStateListener =
         AuthStateListener { firebaseAuth ->
             val firebaseUser = firebaseAuth.currentUser
 
@@ -98,13 +98,13 @@ class LogInActivity : AppCompatActivity() {
             }
         }
 
-    fun NavigateSignUp() {
-        val inent = Intent(this, RegisterActivity::class.java)
-        startActivity(inent)
+    fun navigateSignUp() {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
 
     /*fun NavigateForgetMyPassword(v: View?) {
-        val inent = Intent(this, ResetPasswordActivity::class.java)
-        startActivity(inent)
+        val intent = Intent(this, ResetPasswordActivity::class.java)
+        startActivity(intent)
     }*/
 }
