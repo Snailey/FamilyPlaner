@@ -2,7 +2,7 @@ package no.hiof.snailey.familyplaner.data
 
 import com.google.firebase.database.Exclude
 
-data class EventList(
+data class ToDo(
     @get:Exclude
     var id: String? = null,
     var name: String? = null,
@@ -10,7 +10,7 @@ data class EventList(
     var isDeleted: Boolean = false
 ) {
     override fun equals(other: Any?): Boolean {
-        return if (other is EventList) {
+        return if (other is ToDo) {
             other.id == id
         } else false
     }

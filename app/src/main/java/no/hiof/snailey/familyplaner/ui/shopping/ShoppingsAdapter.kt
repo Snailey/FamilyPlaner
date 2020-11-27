@@ -21,7 +21,6 @@ class ShoppingsAdapter : RecyclerView.Adapter<ShoppingsAdapter.ShoppingViewModel
 
     override fun getItemCount() = shoppings.size
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ShoppingViewModel, position: Int) {
         holder.view.text_view_name.text = shoppings[position].name
         holder.view.number.text = shoppings[position].number.toString()

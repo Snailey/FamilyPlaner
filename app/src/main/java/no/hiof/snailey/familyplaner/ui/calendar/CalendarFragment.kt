@@ -1,16 +1,11 @@
 package no.hiof.snailey.familyplaner.ui.calendar
 
-import android.app.AlertDialog
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.CalendarView
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,12 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.Dispatchers.Main
 import no.hiof.snailey.familyplaner.R
+import no.hiof.snailey.familyplaner.data.Event
 
-import no.hiof.snailey.familyplaner.ui.shopping.EditDialogFragment
-import java.time.LocalDateTime
-import java.time.Year
 import java.util.*
 
 

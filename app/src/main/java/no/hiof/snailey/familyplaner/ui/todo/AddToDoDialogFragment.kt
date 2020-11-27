@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.dialog_fragment_add_todo.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.EventList
+import no.hiof.snailey.familyplaner.data.ToDo
 
 class AddToDoDialogFragment : DialogFragment() {
 
@@ -49,7 +49,7 @@ class AddToDoDialogFragment : DialogFragment() {
                 input_layout_name.error = getString(R.string.error_field_required)
                 return@setOnClickListener
             }
-            val todo = EventList()
+            val todo = ToDo()
             todo.name = name
             viewModel.addTodo(todo)
         }

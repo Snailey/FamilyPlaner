@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import no.hiof.snailey.familyplaner.R
+import no.hiof.snailey.familyplaner.data.Event
 import no.hiof.snailey.familyplaner.ui.calendar.EventsAdapter.MyViewHolder
 import java.util.*
 

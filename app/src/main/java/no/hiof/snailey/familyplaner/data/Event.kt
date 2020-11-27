@@ -1,4 +1,4 @@
-package no.hiof.snailey.familyplaner.ui.calendar
+package no.hiof.snailey.familyplaner.data
 
 class Event(
     var title: String,

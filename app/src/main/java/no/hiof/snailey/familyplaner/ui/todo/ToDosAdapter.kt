@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_view_todo.view.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.EventList
+import no.hiof.snailey.familyplaner.data.ToDo
 
 class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
 
-    private var todos = mutableListOf<EventList>()
+    private var todos = mutableListOf<ToDo>()
     var listener: RecyclerViewClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ToDoViewModel(
@@ -30,12 +30,12 @@ class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
         }
     }
 
-    fun setTodos(toDos: List<EventList>) {
-        this.todos = toDos as MutableList<EventList>
+    fun setTodos(toDos: List<ToDo>) {
+        this.todos = toDos as MutableList<ToDo>
         notifyDataSetChanged()
     }
 
-    fun addTodos(toDo: EventList) {
+    fun addTodos(toDo: ToDo) {
         if (!todos.contains(toDo)) {
             todos.add(toDo)
         } else {

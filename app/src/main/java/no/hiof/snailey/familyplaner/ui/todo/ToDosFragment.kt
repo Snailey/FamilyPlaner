@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_todos.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.EventList
+import no.hiof.snailey.familyplaner.data.ToDo
 
 class ToDosFragment : Fragment(), RecyclerViewClickListener {
 
@@ -48,7 +48,7 @@ class ToDosFragment : Fragment(), RecyclerViewClickListener {
         }
     }
 
-    override fun onRecyclerViewItemClicked(view: View, toDo: EventList) {
+    override fun onRecyclerViewItemClicked(view: View, toDo: ToDo) {
         when (view.id) {
             R.id.button_edit -> {
                 EditToDoDialogFragment(toDo).show(childFragmentManager, "")
