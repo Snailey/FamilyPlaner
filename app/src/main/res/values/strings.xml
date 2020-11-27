@@ -1,60 +1,62 @@
 <resources>
     <string name="app_name">Familie Ordnær\'n</string>
+    <string name="slogan">Holder orden på hele familien</string>
 
-    <string name="add">Legg til</string>
+    <string name="name">Navn</string>
+    <string name="enterName">Skriv inn navn</string>
+
+    <string name="family">Familie</string>
+    <string name="familycode">FamilieKode</string>
+    <string name="typeFamilyCode">Skriv inn Familiekode</string>
+
+    <string name="changeEmail">Endre Epost</string>
+    <string name="email">E-postadresse</string>
+    <string name="newEmail">Ny epost</string>
+    <string name="get_resetpassword_email">Skriv inn epostadressen, og du vil få tilsendt en epost</string>
+
     <string name="error_field_required">Dette feltet må fyllesut</string>
     <string name="error">Error: %1$s</string>
+
     <string name="update">Oppdater</string>
     <string name="delete_confirmation">Sikker på at du vil slette?</string>
     <string name="yes">Ja</string>
-    <string name="email">E-postadresse</string>
-    <string name="password">Passord</string>
+    <string name="saveChanges">Lagre endringer</string>
 
     <string name="open">Åpne</string>
     <string name="close">Lukk</string>
+    <string name="abort">Avbryt</string>
+
+    <string name="subtract">Trekk fra</string>
+    <string name="add">Legg til</string>
+
+    <string name="event">Aktiviteter</string>
+    <string name="add_new_event">Legg til ny aktivitet</string>
 
     <string name="enter_todos_name">ToDo Tittel</string>
     <string name="add_new_todo">Legg til ny ToDo</string>
     <string name="todo_added">ToDo Lagret</string>
     <string name="edit_todo">Rediger ToDo</string>
+    <string name="delete_todo">Slett ToDo</string>
 
     <string name="enter_shoppings_name">Skriv inn vare</string>
     <string name="add_new_shopping">Legg til ny vare</string>
     <string name="shopping_added">Vare lagret</string>
     <string name="edit_shopping">Rediger vare</string>
+    <string name="delete_shopping">Slett vare</string>
 
+    <string name="autenticate">Autentiser</string>
+    <string name="password">Passord</string>
+    <string name="writePassword">Skriv inn passord</string>
+    <string name="forgot_password">Glemt passord?</string>
+    <string name="resetPassword">Tilbakestill passord</string>
+    <string name="changePassword">Endre Passord</string>
+    <string name="newPassword">Nytt passord</string>
+    <string name="verifyPassword">Bekreft passord</string>
 
-    <string name="title_activity_login">Logg Inn</string>
-    <string name="prompt_email">Epost</string>
-    <string name="prompt_password">Passord</string>
-    <string name="action_sign_in">Logg inn eller registrer deg</string>
-    <string name="action_sign_in_short">Logg Inn</string>
-    <string name="welcome">Velkommen</string>
-    <string name="invalid_username">Benytt gyldig brukernavn</string>
-    <string name="invalid_password">Passordet må inneholde 5 tegn</string>
-    <string name="login_failed">Prøv på nytt</string>
     <string name="login">Logg Inn</string>
     <string name="register">Registrer</string>
     <string name="new_user">Ny bruker?</string>
-    <string name="name">Navn</string>
-    <string name="familycode">FamilieKode</string>
-    <string name="abort">Avbryt</string>
-    <string name="title_activity_register">RegisterActivity</string>
-    <string name="subtract">Trekk fra</string>
-    <string name="create_profile">Opprett profil</string>
-    <string name="enter_your_name">Skriv inn navn</string>
-    <string name="surname">Etternavn</string>
-    <string name="enter_your_surname">Skriv inn etternavn</string>
-    <string name="ok">OK</string>
-    <string name="demo_date_boundaries">Calendar Demo</string>
-    <string name="selection_mode_none">Ingen valgt</string>
-    <string name="selection_mode_single">En Valgt</string>
-    <string name="selection_mode_multiple">Flere Valgt</string>
-    <string name="selection_mode_range">Range</string>
-    <string name="selection_mode_week">Uke</string>
-    <string name="forgot_password">Glemt passord?</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="choose_theme_text">Velg Theme</string>
+    <string name="deleteUser">Slett Bruker</string>
+
 
 </resources>
