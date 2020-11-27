@@ -1,4 +1,4 @@
-package no.hiof.snailey.familyplaner.ui
+package no.hiof.snailey.familyplaner.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
@@ -13,6 +14,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import no.hiof.snailey.familyplaner.R
+import no.hiof.snailey.familyplaner.ui.MainActivity
 
 
 class LogInActivity : AppCompatActivity() {
@@ -21,8 +23,8 @@ class LogInActivity : AppCompatActivity() {
     private var signInPass:EditText? = null
     private var signInButton: Button? = null
     private var registerButton: Button? = null
+    private var forgotPassword: TextView? = null
     private var auth: FirebaseAuth? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,12 +33,11 @@ class LogInActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance();
         auth!!.addAuthStateListener(authStateListener);
 
-
-
         signInMail = findViewById(R.id.text_email);
         signInPass = findViewById(R.id.text_password);
         signInButton = findViewById<Button>(R.id.btn_register)
         registerButton = findViewById<Button>(R.id.btn_cancel)
+        forgotPassword = findViewById<TextView>(R.id.text_forgot)
 
         signInButton!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
@@ -45,13 +46,13 @@ class LogInActivity : AppCompatActivity() {
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(
                         applicationContext,
-                        "Enter your mail address",
+                        "Skriv e-post",
                         Toast.LENGTH_SHORT
                     ).show()
                     return
                 }
                 if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(applicationContext, "Enter your password", Toast.LENGTH_SHORT)
+                    Toast.makeText(applicationContext, "Skriv passord", Toast.LENGTH_SHORT)
                         .show()
                     return
                 }
@@ -61,10 +62,10 @@ class LogInActivity : AppCompatActivity() {
                         OnCompleteListener<AuthResult?> { task ->
                             if (!task.isSuccessful) {
                                 // there was an error
-                                if (password.length < 8) {
+                                if (password.length < 6) {
                                     Toast.makeText(
                                         applicationContext,
-                                        "Password must be more than 8 digit",
+                                        "Passord må ha minimum 6 tegn",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 } else {
@@ -85,6 +86,13 @@ class LogInActivity : AppCompatActivity() {
                 navigateSignUp()
             }
         })
+
+        forgotPassword!!.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                navigateForgotPassword()
+            }
+        })
+
     }
 
     private var authStateListener =
@@ -103,8 +111,8 @@ class LogInActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    /*fun NavigateForgetMyPassword(v: View?) {
+    fun navigateForgotPassword() {
         val intent = Intent(this, ResetPasswordActivity::class.java)
         startActivity(intent)
-    }*/
+    }
 }

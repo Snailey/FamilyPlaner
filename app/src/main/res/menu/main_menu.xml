@@ -5,7 +5,7 @@
     <item android:title="General">
         <menu>
             <item
-                android:id="@+id/settings"
+                android:id="@+id/profil"
                 android:title="Innstillinger"
                 android:icon="@drawable/ic_settings"
                 />

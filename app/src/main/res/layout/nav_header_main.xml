@@ -3,15 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="275dp"
     android:gravity="bottom"
     android:orientation="vertical">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@color/colorAccent">
-
+        android:layout_height="match_parent"
+        android:background="@color/primaryLightColor">
+        <ImageView
+            android:id="@+id/header_imageview"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="96dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
@@ -23,7 +29,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
@@ -31,30 +36,36 @@
             android:text="Holder orden på hele familien"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-        <TextView
-            android:id="@+id/header_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Navn"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-        <TextView
-            android:id="@+id/header_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Epost"
-            app:layout_constraintStart_toStartOf="@+id/header_name"
-            app:layout_constraintTop_toBottomOf="@+id/header_name" />
-
         <TextView
             android:id="@+id/header_family"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Familie"
-            app:layout_constraintStart_toStartOf="@+id/header_email"
-            app:layout_constraintTop_toBottomOf="@+id/header_email" />
+            app:layout_constraintStart_toStartOf="@+id/header_name"
+            app:layout_constraintTop_toTopOf="@+id/textView9" />
+        <TextView
+            android:id="@+id/header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="Navn"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="Navn:"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Familie:"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

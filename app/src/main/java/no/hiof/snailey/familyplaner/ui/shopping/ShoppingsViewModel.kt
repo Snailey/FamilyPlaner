@@ -10,7 +10,7 @@ import java.lang.Exception
 
 class ShoppingsViewModel : ViewModel() {
 
-    private val dbShopping = FirebaseDatabase.getInstance().getReference(NODE_SHOPPING)
+    private val dbShopping = FirebaseDatabase.getInstance().getReference("Martinsen").child(NODE_SHOPPING)
 
     private val _shoppings = MutableLiveData<List<Shopping>>()
     val shoppings: LiveData<List<Shopping>>

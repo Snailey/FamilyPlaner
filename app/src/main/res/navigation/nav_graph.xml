@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/calendarFragment">
+
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" >
+        <action
+            android:id="@+id/action_calendarFragment_to_toDosFragment"
+            app:destination="@id/toDosFragment" />
+        <action
+            android:id="@+id/action_calendarFragment_to_shoppingsFragment"
+            app:destination="@id/shoppingsFragment" />
+        <action
+            android:id="@+id/action_calendarFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDosFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.todo.ToDosFragment"
+        android:label="fragment_todos"
+        tools:layout="@layout/fragment_todos" >
+        <action
+            android:id="@+id/action_toDosFragment_to_shoppingsFragment"
+            app:destination="@id/shoppingsFragment" />
+        <action
+            android:id="@+id/action_toDosFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_toDosFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingsFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.shopping.ShoppingsFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping" >
+        <action
+            android:id="@+id/action_shoppingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_shoppingsFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+        <action
+            android:id="@+id/action_shoppingsFragment_to_toDosFragment"
+            app:destination="@id/toDosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="net.simplifiedcoding.firebaseauthtutorial.ui.fragments.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_shoppingsFragment"
+            app:destination="@id/shoppingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_toDosFragment"
+            app:destination="@id/toDosFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
+</navigation>

@@ -1,24 +1,16 @@
 package no.hiof.snailey.familyplaner.data
 
 import com.google.firebase.database.Exclude
-import ru.cleverpumpkin.calendar.CalendarDate
-import ru.cleverpumpkin.calendar.CalendarView
 
-class EventItem(
+data class EventList(
     @get:Exclude
     var id: String? = null,
-    val name: String,
-    override val date: CalendarDate,
-    override val color: Int,
-    //val time: CalendarDate,
-    //var description: String,
-
-
-    ) : CalendarView.DateIndicator
-
-{
+    var name: String? = null,
+    @get:Exclude
+    var isDeleted: Boolean = false
+) {
     override fun equals(other: Any?): Boolean {
-        return if (other is Shopping) {
+        return if (other is EventList) {
             other.id == id
         } else false
     }

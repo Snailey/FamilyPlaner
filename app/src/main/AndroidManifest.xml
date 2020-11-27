@@ -3,6 +3,8 @@
     package="no.hiof.snailey.familyplaner">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,16 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.LogInActivity" >
+        <activity android:name=".ui.auth.LogInActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.RegisterActivity" />
-
+        <activity
+            android:name=".ui.calendar.AddEventActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".ui.auth.ResetPasswordActivity"/>
 
     </application>
 

@@ -4,24 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.todo.ToDosFragment">
-
+    tools:context=".ui.todo.ToDosFragment"
+    android:background="@color/backgroundColor">
     <androidx.recyclerview.widget.RecyclerView
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/recycler_view_todos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/recycler_view_todo" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        app:backgroundTint="@color/colorAccent"
+        app:backgroundTint="@color/secondaryColor"
         app:fabSize="normal"
         app:srcCompat="@drawable/ic_add" />
-
-
 </FrameLayout>

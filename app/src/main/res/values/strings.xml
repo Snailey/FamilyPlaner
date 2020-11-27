@@ -1,38 +1,38 @@
 <resources>
     <string name="app_name">Familie Ordnær\'n</string>
 
-    <string name="add">Add</string>
-    <string name="error_field_required">This Field Required</string>
+    <string name="add">Legg til</string>
+    <string name="error_field_required">Dette feltet må fyllesut</string>
     <string name="error">Error: %1$s</string>
-    <string name="update">Update</string>
-    <string name="delete_confirmation">Are you sure you want to delete?</string>
-    <string name="yes">Yes</string>
+    <string name="update">Oppdater</string>
+    <string name="delete_confirmation">Sikker på at du vil slette?</string>
+    <string name="yes">Ja</string>
     <string name="email">E-postadresse</string>
     <string name="password">Passord</string>
 
-    <string name="open">open</string>
-    <string name="close">close</string>
+    <string name="open">Åpne</string>
+    <string name="close">Lukk</string>
 
-    <string name="enter_todos_name">Enter ToDo</string>
-    <string name="add_new_todo">Add New ToDo</string>
-    <string name="todo_added">ToDo Successfully Added</string>
-    <string name="edit_todo">Edit ToDo</string>
+    <string name="enter_todos_name">ToDo Tittel</string>
+    <string name="add_new_todo">Legg til ny ToDo</string>
+    <string name="todo_added">ToDo Lagret</string>
+    <string name="edit_todo">Rediger ToDo</string>
 
-    <string name="enter_shoppings_name">Enter Shopping Item</string>
-    <string name="add_new_shopping">Add New Shopping Item</string>
-    <string name="shopping_added">Item Successfully Added</string>
-    <string name="edit_shopping">Edit Item</string>
+    <string name="enter_shoppings_name">Skriv inn vare</string>
+    <string name="add_new_shopping">Legg til ny vare</string>
+    <string name="shopping_added">Vare lagret</string>
+    <string name="edit_shopping">Rediger vare</string>
 
 
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_login">Logg Inn</string>
+    <string name="prompt_email">Epost</string>
+    <string name="prompt_password">Passord</string>
+    <string name="action_sign_in">Logg inn eller registrer deg</string>
+    <string name="action_sign_in_short">Logg Inn</string>
+    <string name="welcome">Velkommen</string>
+    <string name="invalid_username">Benytt gyldig brukernavn</string>
+    <string name="invalid_password">Passordet må inneholde 5 tegn</string>
+    <string name="login_failed">Prøv på nytt</string>
     <string name="login">Logg Inn</string>
     <string name="register">Registrer</string>
     <string name="new_user">Ny bruker?</string>
@@ -40,11 +40,11 @@
     <string name="familycode">FamilieKode</string>
     <string name="abort">Avbryt</string>
     <string name="title_activity_register">RegisterActivity</string>
-    <string name="subtract">Subtract</string>
-    <string name="create_profile">Create Profile</string>
-    <string name="enter_your_name">Enter your name</string>
-    <string name="surname">Surename</string>
-    <string name="enter_your_surname">Enter your surename</string>
+    <string name="subtract">Trekk fra</string>
+    <string name="create_profile">Opprett profil</string>
+    <string name="enter_your_name">Skriv inn navn</string>
+    <string name="surname">Etternavn</string>
+    <string name="enter_your_surname">Skriv inn etternavn</string>
     <string name="ok">OK</string>
     <string name="demo_date_boundaries">Calendar Demo</string>
     <string name="selection_mode_none">Ingen valgt</string>
@@ -52,6 +52,8 @@
     <string name="selection_mode_multiple">Flere Valgt</string>
     <string name="selection_mode_range">Range</string>
     <string name="selection_mode_week">Uke</string>
-
+    <string name="forgot_password">Glemt passord?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

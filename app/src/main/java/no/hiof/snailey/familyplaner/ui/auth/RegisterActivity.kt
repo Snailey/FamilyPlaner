@@ -1,4 +1,4 @@
-package no.hiof.snailey.familyplaner.ui
+package no.hiof.snailey.familyplaner.ui.auth
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -16,28 +16,28 @@ import com.google.firebase.database.FirebaseDatabase
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.NODE_USER
 import no.hiof.snailey.familyplaner.data.User
+import no.hiof.snailey.familyplaner.ui.MainActivity
 
 
 class RegisterActivity : AppCompatActivity() {
 
-    var SignUpMail: EditText? = null
-    var SignUpPass:EditText? = null
-    var text_name:EditText? = null
-    var text_family:EditText? = null
-    var SignUpButton: Button? = null
-    var CancelButton: Button? = null
+    private var SignUpMail: EditText? = null
+    private var SignUpPass:EditText? = null
+    private var text_name:EditText? = null
+    private var text_family:EditText? = null
+    private var SignUpButton: Button? = null
+    private var CancelButton: Button? = null
     private var auth: FirebaseAuth? = null
 
     private val dbUser = FirebaseDatabase.getInstance().getReference(NODE_USER)
 
-    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         SignUpMail = findViewById(R.id.text_email)
         SignUpPass = findViewById(R.id.text_password)
         text_name = findViewById(R.id.text_name)
-        text_family = findViewById(R.id.text_family)
+        text_family = findViewById(R.id.edit_text_family)
         auth = FirebaseAuth.getInstance()
         SignUpButton = findViewById<Button>(R.id.btn_register)
         CancelButton = findViewById<Button>(R.id.btn_cancel)
@@ -48,23 +48,23 @@ class RegisterActivity : AppCompatActivity() {
             if (TextUtils.isEmpty(email)) {
                 Toast.makeText(
                     applicationContext,
-                    "Please enter your E-mail address",
+                    "Skriv inn e-post på nytt",
                     Toast.LENGTH_LONG
                 ).show()
                 return@OnClickListener
             }
             if (TextUtils.isEmpty(pass)) {
-                Toast.makeText(applicationContext, "Please enter your Password", Toast.LENGTH_LONG)
+                Toast.makeText(applicationContext, "Skriv inn passord", Toast.LENGTH_LONG)
                     .show()
             }
             if (pass.isEmpty()) {
-                Toast.makeText(applicationContext, "Please enter your Password", Toast.LENGTH_LONG)
+                Toast.makeText(applicationContext, "Skriv inn passord", Toast.LENGTH_LONG)
                     .show()
             }
             if (pass.length < 6) {
                 Toast.makeText(
                     applicationContext,
-                    "Password must be more than 6 digit",
+                    "Passord m å bestå av mer en 6 tegn",
                     Toast.LENGTH_LONG
                 ).show()
             } else {
@@ -88,8 +88,6 @@ class RegisterActivity : AppCompatActivity() {
             }
         })
 
-
-        //take user to RegisterFragment
        CancelButton!!.setOnClickListener {
                 val intent = Intent(applicationContext, LogInActivity::class.java)
                 startActivity(intent)
@@ -100,19 +98,14 @@ class RegisterActivity : AppCompatActivity() {
         val name = text_name?.text.toString().trim()
         val email = SignUpMail?.text.toString().trim()
         val family = text_family?.text.toString().trim()
-        //val userId =
+        val picture = "https://firebasestorage.googleapis.com/v0/b/familyplaner-3842b.appspot.com/o/profil.jpg?alt=media&token=7e169bd0-8a23-40c2-bb39-23e0ec89c99b"
 
         val user = auth?.currentUser
-        val userId = user!!.uid
+        val Uid = user!!.uid
 
-        val newUser = User(userId, name, email, family)
+        val newUser = User(Uid, name, email, family, picture)
 
-        dbUser.child(userId).setValue(newUser)
-
-
-        Toast.makeText(this, "Brukeren er lagret $userId", Toast.LENGTH_SHORT).show()
-
+        dbUser.child(Uid).setValue(newUser)
     }
-
 }
 

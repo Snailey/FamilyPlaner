@@ -1,17 +1,16 @@
 package no.hiof.snailey.familyplaner.ui.todo
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.recycler_view_todo.view.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.ToDo
+import no.hiof.snailey.familyplaner.data.EventList
 
 class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
 
-    private var todos = mutableListOf<ToDo>()
+    private var todos = mutableListOf<EventList>()
     var listener: RecyclerViewClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ToDoViewModel(
@@ -21,7 +20,6 @@ class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
 
     override fun getItemCount() = todos.size
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ToDoViewModel, position: Int) {
         holder.view.text_view_name.text = todos[position].name
         holder.view.button_edit.setOnClickListener {
@@ -32,12 +30,12 @@ class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
         }
     }
 
-    fun setTodos(toDos: List<ToDo>) {
-        this.todos = toDos as MutableList<ToDo>
+    fun setTodos(toDos: List<EventList>) {
+        this.todos = toDos as MutableList<EventList>
         notifyDataSetChanged()
     }
 
-    fun addTodos(toDo: ToDo) {
+    fun addTodos(toDo: EventList) {
         if (!todos.contains(toDo)) {
             todos.add(toDo)
         } else {

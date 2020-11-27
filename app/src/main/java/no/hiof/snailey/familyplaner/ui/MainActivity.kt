@@ -9,31 +9,38 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentManager
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.NODE_USER
+import no.hiof.snailey.familyplaner.ui.auth.LogInActivity
 import no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment
+import no.hiof.snailey.familyplaner.ui.profile.ProfileFragment
 import no.hiof.snailey.familyplaner.ui.shopping.ShoppingsFragment
 import no.hiof.snailey.familyplaner.ui.todo.ToDosFragment
 
-
 class MainActivity : AppCompatActivity() {
 
-    private var auth: FirebaseAuth? = null
     private var userName: TextView? = null
-    private var userEmail: TextView? = null
     private var userFamily: TextView? = null
+
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+    private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val dbUser = FirebaseDatabase.getInstance().getReference(NODE_USER)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        auth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference!!.child("user")
+        mAuth = FirebaseAuth.getInstance()
 
     //bottom navigation
             setupNavigation()
@@ -45,6 +52,10 @@ class MainActivity : AppCompatActivity() {
                 when (it.itemId) {
                     R.id.home -> {
                         true
+                    }
+                    R.id.profil -> {
+                        switchToProfileFragment()
+                        drawer.closeDrawer(GravityCompat.START)
                     }
                     R.id.logout_btn -> {
                         logout()
@@ -64,26 +75,29 @@ class MainActivity : AppCompatActivity() {
         var header: View = navigationView.inflateHeaderView(R.layout.nav_header_main)
 
         userName = header.findViewById<TextView>(R.id.header_name) as TextView
-        userEmail = header.findViewById<TextView>(R.id.header_email) as TextView
         userFamily = header.findViewById<TextView>(R.id.header_family) as TextView
 
-
-        //Get auth uid
-        val user = auth?.currentUser
-        val userId = user!!.uid
-
-        //Get Firebase User Data...
-
-
-        //Put user.data
-        userName!!.setText("name").toString()
-        userEmail!!.setText("email").toString()
-        userFamily!!.setText("family").toString()
+        val uid = mDatabaseReference!!.child(mAuth!!.currentUser!!.uid)
         
+        uid.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                userName!!.text = snapshot.child("name").value as String
+                userFamily!!.text = snapshot.child("family").value as String
+                val media = snapshot.child("picture").value as String
+                if (media !== null) {
+                    Glide.with(this@MainActivity)
+                        .load(media)
+                        .into(header_imageview!!)
+                } else {
+                   // userImg!!.setImageResource(R.drawable.ic_launcher_background)
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
     }
 
     //main navigation
-
     override fun onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
@@ -129,24 +143,32 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchToToDoFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, ToDosFragment()).commit()
+        manager.beginTransaction().replace(R.id.fragment, ToDosFragment()).addToBackStack(null).commit()
     }
 
     private fun switchToShoppingFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, ShoppingsFragment()).commit()
+        manager.beginTransaction().replace(R.id.fragment, ShoppingsFragment()).addToBackStack(null).commit()
     }
 
     private fun switchToCalendarFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, CalendarFragment()).commit()
+        manager.beginTransaction().replace(R.id.fragment, CalendarFragment()).addToBackStack(null).commit()
+    }
+
+    private fun switchToProfileFragment() {
+        val manager: FragmentManager = supportFragmentManager
+        manager.beginTransaction().replace(R.id.fragment, ProfileFragment()).addToBackStack(null).commit()
     }
 
     private fun logout() {
-
         FirebaseAuth.getInstance().signOut()
 
         val intent = Intent(this, LogInActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
+        finish()
     }
 }
+
