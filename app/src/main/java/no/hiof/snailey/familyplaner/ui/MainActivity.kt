@@ -1,12 +1,16 @@
 package no.hiof.snailey.familyplaner.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
@@ -42,35 +46,35 @@ class MainActivity : AppCompatActivity() {
         mDatabaseReference = mDatabase!!.reference!!.child("user")
         mAuth = FirebaseAuth.getInstance()
 
-    //bottom navigation
-            setupNavigation()
+        //bottom navigation
+        setupNavigation()
 
-    //main navigation
-            setSupportActionBar(findViewById(R.id.toolbar))
+        //main navigation
+        setSupportActionBar(findViewById(R.id.toolbar))
 
-            navigation_view.setNavigationItemSelectedListener {
-                when (it.itemId) {
-                    R.id.home -> {
-                        true
-                    }
-                    R.id.profil -> {
-                        switchToProfileFragment()
-                        drawer.closeDrawer(GravityCompat.START)
-                    }
-                    R.id.logout_btn -> {
-                        logout()
-                    }
+        navigation_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.home -> {
+                    true
                 }
-                true
+                R.id.profil -> {
+                    switchToProfileFragment()
+                    drawer.closeDrawer(GravityCompat.START)
+                }
+                R.id.logout_btn -> {
+                    logout()
+                }
             }
+            true
+        }
 
-            val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
-            drawer.addDrawerListener(drawerToggle)
-            drawerToggle.syncState()
+        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
+        drawer.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
 
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-    //Navigation header
+        //Navigation header
         val navigationView = findViewById<NavigationView>(R.id.navigation_view)
         var header: View = navigationView.inflateHeaderView(R.layout.nav_header_main)
 
@@ -78,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         userFamily = header.findViewById<TextView>(R.id.header_family) as TextView
 
         val uid = mDatabaseReference!!.child(mAuth!!.currentUser!!.uid)
-        
+
         uid.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userName!!.text = snapshot.child("name").value as String
@@ -89,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                         .load(media)
                         .into(header_imageview!!)
                 } else {
-                   // userImg!!.setImageResource(R.drawable.ic_launcher_background)
+                    // userImg!!.setImageResource(R.drawable.ic_launcher_background)
                 }
             }
 
@@ -143,22 +147,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun switchToToDoFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, ToDosFragment()).addToBackStack(null).commit()
+        manager.beginTransaction().replace(R.id.fragment, ToDosFragment()).addToBackStack(null)
+            .commit()
     }
 
     private fun switchToShoppingFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, ShoppingsFragment()).addToBackStack(null).commit()
+        manager.beginTransaction().replace(R.id.fragment, ShoppingsFragment()).addToBackStack(null)
+            .commit()
     }
 
     private fun switchToCalendarFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, CalendarFragment()).addToBackStack(null).commit()
+        manager.beginTransaction().replace(R.id.fragment, CalendarFragment()).addToBackStack(null)
+            .commit()
     }
 
     private fun switchToProfileFragment() {
         val manager: FragmentManager = supportFragmentManager
-        manager.beginTransaction().replace(R.id.fragment, ProfileFragment()).addToBackStack(null).commit()
+        manager.beginTransaction().replace(R.id.fragment, ProfileFragment()).addToBackStack(null)
+            .commit()
     }
 
     private fun logout() {
@@ -171,4 +179,6 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 }
+
+
 
