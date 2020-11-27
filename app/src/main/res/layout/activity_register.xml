@@ -10,8 +10,7 @@
         android:id="@+id/constrainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.auth.RegisterActivity"
-        android:background="@color/backgroundColor">
+        tools:context=".ui.auth.RegisterActivity">
         <EditText
             android:id="@+id/text_password"
             android:layout_width="300dp"

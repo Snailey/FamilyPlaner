@@ -13,8 +13,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -123,7 +125,24 @@ class ProfileFragment : Fragment() {
             transaction?.addToBackStack(null)
             transaction?.commit()
         }
-    }
+        // Declare the switch from the layout file
+        val btn = view.findViewById<Switch>(R.id.switch1)
+
+        // set the switch to listen on checked change
+        btn.setOnCheckedChangeListener { _, isChecked ->
+
+            // if the button is checked, i.e., towards the right or enabled
+            // enable dark mode, change the text to disable dark mode
+            // else keep the switch text to enable dark mode
+            if (btn.isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                btn.text = "Disable dark mode"
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                btn.text = "Enable dark mode"
+            }
+        }
+}
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

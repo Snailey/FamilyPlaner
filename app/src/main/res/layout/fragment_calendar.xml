@@ -8,8 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.calendar.CalendarFragment"
-        android:background="@color/backgroundColor">
+        tools:context=".ui.calendar.CalendarFragment">
 
         <CalendarView
             android:id="@+id/calendarView"

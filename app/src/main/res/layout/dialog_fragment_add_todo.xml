@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".ui.todo.ToDosFragment"
-    android:background="@color/backgroundColor">
+    tools:context=".ui.todo.ToDosFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

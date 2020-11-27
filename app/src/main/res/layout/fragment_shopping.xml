@@ -9,7 +9,6 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="100000dp"
-        android:background="@color/backgroundColor"
         tools:context=".ui.shopping.ShoppingsFragment">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_shopping"
