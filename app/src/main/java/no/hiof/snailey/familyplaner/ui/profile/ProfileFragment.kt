@@ -1,14 +1,15 @@
 package no.hiof.snailey.familyplaner.ui.profile
 
 import android.Manifest
-import android.R.attr.thumb
 import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +28,7 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.NODE_USER
-import no.hiof.snailey.familyplaner.data.User
+import no.hiof.snailey.familyplaner.data.*
 import java.io.File
 
 
@@ -47,9 +47,6 @@ class ProfileFragment : Fragment() {
     var selectedPhotoUri: Uri? = null
     lateinit var email: String
     lateinit var picture: String
-
-    private val currentUser = FirebaseAuth.getInstance().currentUser
-    var file: File? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,11 +89,13 @@ class ProfileFragment : Fragment() {
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 
-        image_view!!.setOnClickListener{
-            //val intent = Intent(Intent.ACTION_PICK)
-            //intent.type = "image/*"
-            //startActivityForResult(intent, 0)
+        btn_chose_picture!!.setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, CHOSE_PICTURE)
+        }
 
+        btn_take_photo!!.setOnClickListener{
             takePicture()
         }
 
@@ -125,15 +124,10 @@ class ProfileFragment : Fragment() {
             transaction?.addToBackStack(null)
             transaction?.commit()
         }
-        // Declare the switch from the layout file
         val btn = view.findViewById<Switch>(R.id.switch1)
 
-        // set the switch to listen on checked change
         btn.setOnCheckedChangeListener { _, isChecked ->
 
-            // if the button is checked, i.e., towards the right or enabled
-            // enable dark mode, change the text to disable dark mode
-            // else keep the switch text to enable dark mode
             if (btn.isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 btn.text = "Disable dark mode"
@@ -147,7 +141,7 @@ class ProfileFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null)  {
+        if (requestCode == CHOSE_PICTURE && resultCode == Activity.RESULT_OK && data != null)  {
             selectedPhotoUri = data.data
 
             val resolver = requireActivity().contentResolver
@@ -156,20 +150,10 @@ class ProfileFragment : Fragment() {
             image_view.setImageBitmap(bitmap)
             uploadImageToFirebaseStorage()
 
-        } else if (requestCode == 102  && resultCode == Activity.RESULT_OK && data != null) {
+        } else if (requestCode == TAKE_PICTURE  && resultCode == Activity.RESULT_OK && data != null) {
 
-            //GET URI
-
-
-            
-
-            val bitmap = data.extras?.get("data") as Bitmap
-
-
-
-            //uploadImageToFirebaseStorage()
-            image_view.setImageBitmap(bitmap)
-
+            uploadImageToFirebaseStorage()
+            image_view.setImageURI(selectedPhotoUri)
         }
     }
 
@@ -187,7 +171,6 @@ class ProfileFragment : Fragment() {
             .addOnFailureListener {
                 println("ERROR - Bilde IKKE lastet opp")
             }
-
     }
 
     private fun updateUserToFirebaseDatabase(profileImageUrl: String) {
@@ -209,22 +192,29 @@ class ProfileFragment : Fragment() {
     }
 
     private fun askCameraPermission() {
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED ||
+            ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(
                 requireActivity(),
-                arrayOf(Manifest.permission.CAMERA),
-                101
+                arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                ASK_PERMISSION
             )
         } else {
             openCamera()
         }
     }
 
-    private fun openCamera() {
-        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent, 102)
-    }
+private fun openCamera() {
+    val resolver = requireActivity().contentResolver
+    val values = ContentValues()
+    values.put(MediaStore.Images.Media.TITLE, "New Picture")
+    values.put(MediaStore.Images.Media.DESCRIPTION, "From the Camera")
+    selectedPhotoUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
 
+    val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, selectedPhotoUri)
+    startActivityForResult(cameraIntent, TAKE_PICTURE)
+}
 
     override fun onRequestPermissionsResult(
         requestCode: Int,

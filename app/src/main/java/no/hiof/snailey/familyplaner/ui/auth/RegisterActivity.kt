@@ -98,7 +98,7 @@ class RegisterActivity : AppCompatActivity() {
         val name = text_name?.text.toString().trim()
         val email = SignUpMail?.text.toString().trim()
         val family = text_family?.text.toString().trim()
-        val picture = "https://firebasestorage.googleapis.com/v0/b/familyplaner-3842b.appspot.com/o/profil.jpg?alt=media&token=7e169bd0-8a23-40c2-bb39-23e0ec89c99b"
+        val picture = "https://firebasestorage.googleapis.com/v0/b/familyplaner-3842b.appspot.com/o/profile.jpg?alt=media&token=91495986-b255-46b0-be3a-43cb0c115223"
 
         val user = auth?.currentUser
         val Uid = user!!.uid

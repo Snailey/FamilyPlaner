@@ -25,9 +25,9 @@ class ToDosViewModel : ViewModel() {
         get() = _result
 
     fun addTodo(toDo: ToDo) {
-        toDo.id = dbToDos?.push()?.key
-        dbToDos?.child(toDo.id!!)?.setValue(toDo)
-            ?.addOnCompleteListener {
+        toDo.id = dbToDos.push().key
+        dbToDos.child(toDo.id!!).setValue(toDo)
+            .addOnCompleteListener {
                 if (it.isSuccessful) {
                     _result.value = null
                 } else {
@@ -62,11 +62,11 @@ class ToDosViewModel : ViewModel() {
     }
 
     fun getRealtimeUpdates() {
-        dbToDos?.addChildEventListener(childEventListener)
+        dbToDos.addChildEventListener(childEventListener)
     }
 
     fun fetchToDos() {
-        dbToDos?.addListenerForSingleValueEvent(object : ValueEventListener {
+        dbToDos.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -84,8 +84,8 @@ class ToDosViewModel : ViewModel() {
     }
 
     fun updateToDo(toDo: ToDo) {
-        dbToDos?.child(toDo.id!!)?.setValue(toDo)
-            ?.addOnCompleteListener {
+        dbToDos.child(toDo.id!!).setValue(toDo)
+            .addOnCompleteListener {
                 if (it.isSuccessful) {
                     _result.value = null
                 } else {
@@ -95,8 +95,8 @@ class ToDosViewModel : ViewModel() {
     }
 
     fun deleteTodo(toDo: ToDo) {
-        dbToDos?.child(toDo.id!!)?.setValue(null)
-            ?.addOnCompleteListener {
+        dbToDos.child(toDo.id!!).setValue(null)
+            .addOnCompleteListener {
                 if (it.isSuccessful) {
                     _result.value = null
                 } else {
@@ -107,6 +107,6 @@ class ToDosViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        dbToDos?.removeEventListener(childEventListener)
+        dbToDos.removeEventListener(childEventListener)
     }
 }
