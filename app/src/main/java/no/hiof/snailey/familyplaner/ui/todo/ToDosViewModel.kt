@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.*
+import no.hiof.snailey.familyplaner.Global
 import no.hiof.snailey.familyplaner.data.ToDo
 import no.hiof.snailey.familyplaner.data.NODE_TODOS
 import java.lang.Exception
 
 class ToDosViewModel : ViewModel() {
 
-    private val dbToDos = FirebaseDatabase.getInstance().getReference("Martinsen").child(NODE_TODOS)
 
     private val _todos = MutableLiveData<List<ToDo>>()
     val todos: LiveData<List<ToDo>>
@@ -25,6 +25,8 @@ class ToDosViewModel : ViewModel() {
         get() = _result
 
     fun addTodo(toDo: ToDo) {
+
+        val dbToDos = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_TODOS)
         toDo.id = dbToDos.push().key
         dbToDos.child(toDo.id!!).setValue(toDo)
             .addOnCompleteListener {
@@ -62,10 +64,14 @@ class ToDosViewModel : ViewModel() {
     }
 
     fun getRealtimeUpdates() {
+
+        val dbToDos = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_TODOS)
         dbToDos.addChildEventListener(childEventListener)
     }
 
     fun fetchToDos() {
+
+        val dbToDos = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_TODOS)
         dbToDos.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
@@ -84,6 +90,8 @@ class ToDosViewModel : ViewModel() {
     }
 
     fun updateToDo(toDo: ToDo) {
+
+        val dbToDos = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_TODOS)
         dbToDos.child(toDo.id!!).setValue(toDo)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -95,6 +103,8 @@ class ToDosViewModel : ViewModel() {
     }
 
     fun deleteTodo(toDo: ToDo) {
+
+        val dbToDos = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_TODOS)
         dbToDos.child(toDo.id!!).setValue(null)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -106,6 +116,8 @@ class ToDosViewModel : ViewModel() {
     }
 
     override fun onCleared() {
+
+        val dbToDos = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_TODOS)
         super.onCleared()
         dbToDos.removeEventListener(childEventListener)
     }

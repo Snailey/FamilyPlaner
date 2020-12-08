@@ -31,7 +31,6 @@ class ShoppingsFragment : Fragment(), RecyclerViewClickListener {
         adapter.listener = this
         recycler_view_shopping.adapter = adapter
 
-        //viewModel.fetchFilteredShopping(6)
         viewModel.fetchShoppings()
         viewModel.getRealtimeUpdates()
 

@@ -1,5 +1,6 @@
 package no.hiof.snailey.familyplaner.ui.todo
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,7 @@ class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
     override fun getItemCount() = todos.size
 
     override fun onBindViewHolder(holder: ToDoViewModel, position: Int) {
-        holder.view.text_view_name.text = todos[position].name
+        holder.view.text_view_location.text = todos[position].name
         holder.view.button_edit.setOnClickListener {
             listener?.onRecyclerViewItemClicked(it, todos[position])
         }

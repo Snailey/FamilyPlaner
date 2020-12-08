@@ -2,6 +2,7 @@ package no.hiof.snailey.familyplaner.ui.todo
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +13,15 @@ import kotlinx.android.synthetic.main.fragment_todos.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.ToDo
 
-class ToDosFragment : Fragment(), RecyclerViewClickListener {
+class ToDosFragment() : Fragment(), RecyclerViewClickListener {
 
     private lateinit var viewModel: ToDosViewModel
     private val adapter = ToDosAdapter()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

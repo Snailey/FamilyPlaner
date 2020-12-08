@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.dialog_fragment_add_todo.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.ToDo
 
-class AddToDoDialogFragment : DialogFragment() {
+class AddToDoDialogFragment() : DialogFragment() {
 
     private lateinit var viewModel: ToDosViewModel
 
@@ -44,7 +44,7 @@ class AddToDoDialogFragment : DialogFragment() {
         })
 
         button_add.setOnClickListener {
-            val name = edit_text_name.text.toString().trim()
+            val name = set_text_location.text.toString().trim()
             if (name.isEmpty()) {
                 input_layout_name.error = getString(R.string.error_field_required)
                 return@setOnClickListener

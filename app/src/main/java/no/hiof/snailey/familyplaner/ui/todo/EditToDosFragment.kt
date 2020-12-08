@@ -1,6 +1,7 @@
 package no.hiof.snailey.familyplaner.ui.todo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +13,7 @@ import kotlinx.android.synthetic.main.dialog_fragment_add_todo.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.ToDo
 
-class EditToDoDialogFragment(
-    private val toDo: ToDo
-) : DialogFragment() {
+class EditToDoDialogFragment(private val toDo: ToDo) : DialogFragment() {
 
     private lateinit var viewModel: ToDosViewModel
 
@@ -35,7 +34,7 @@ class EditToDoDialogFragment(
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        edit_text_name.setText(toDo.name)
+        set_text_location.setText(toDo.name)
 
         viewModel.result.observe(viewLifecycleOwner, Observer {
             val message = if (it == null) {
@@ -48,7 +47,7 @@ class EditToDoDialogFragment(
         })
 
         button_add.setOnClickListener {
-            val name = edit_text_name.text.toString().trim()
+            val name = set_text_location.text.toString().trim()
             if (name.isEmpty()) {
                 input_layout_name.error = getString(R.string.error_field_required)
                 return@setOnClickListener

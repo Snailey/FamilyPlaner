@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import no.hiof.snailey.familyplaner.R
+import no.hiof.snailey.familyplaner.data.*
+import java.lang.Exception
 import java.util.*
 
 class AddEventActivity : AppCompatActivity(), OnDateSetListener, OnTimeSetListener {
@@ -17,6 +22,9 @@ class AddEventActivity : AppCompatActivity(), OnDateSetListener, OnTimeSetListen
     var hour = 0
     var minute = 0
     var firebaseFirestore: FirebaseFirestore? = null
+    private val dbShopping = FirebaseDatabase.getInstance().getReference("Martinsen").child(NODE_CALENDAR)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -97,6 +105,19 @@ class AddEventActivity : AppCompatActivity(), OnDateSetListener, OnTimeSetListen
         val documentReference =
             firebaseFirestore!!.collection("Events").document(Year).collection(date).document(time)
 
+        // Connent to FirebaseDatabase
+
+        val event = Event(eventTitle, eventLocation, day, month, year, hour, minute)
+
+            dbShopping.push().key
+            dbShopping.child(Year).child(date).child(time).setValue(event)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        _result.value = null
+                    } else {
+                        _result.value = it.exception
+                    }
+                }
 
         // Insert all event info in a Hashmap
         val user: MutableMap<String, String> = HashMap()
@@ -106,6 +127,10 @@ class AddEventActivity : AppCompatActivity(), OnDateSetListener, OnTimeSetListen
             .addOnSuccessListener { Log.d(TAG, "onSuccess: Event is created") }
             .addOnFailureListener { e -> Log.d(TAG, "onFailure: $e") }
     }
+
+    private val _result = MutableLiveData<Exception?>()
+    val result: LiveData<Exception?>
+        get() = _result
 
     companion object {
         const val TAG = "TAG"

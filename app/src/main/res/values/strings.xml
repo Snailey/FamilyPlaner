@@ -57,6 +57,17 @@
     <string name="register">Registrer</string>
     <string name="new_user">Ny bruker?</string>
     <string name="deleteUser">Slett Bruker</string>
+    <string name="enter_events_name">Skriv inn aktivitetens navn</string>
+    <string name="event_added">Aktivitet lagt til</string>
+    <string name="edit_event">Rediger aktivitet</string>
+    <string name="enter_event_title">Skriv inn aktivitetens navn</string>
+    <string name="enter_event_location">Legg inn sted for aktiviteten</string>
+    <string name="clock">Klokkeslett</string>
+    <string name="date">Dato</string>
+    <string name="save">Lagre</string>
+    <string name="calendar">Kalender</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

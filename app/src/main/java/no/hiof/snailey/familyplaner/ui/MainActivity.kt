@@ -1,16 +1,12 @@
 package no.hiof.snailey.familyplaner.ui
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
@@ -21,6 +17,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.nav_header_main.*
+import no.hiof.snailey.familyplaner.Global
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.ui.auth.LogInActivity
 import no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment
@@ -36,6 +33,8 @@ class MainActivity : AppCompatActivity() {
     private var mDatabaseReference: DatabaseReference? = null
     private var mDatabase: FirebaseDatabase? = null
     private var mAuth: FirebaseAuth? = null
+
+    var bundle = Bundle()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,6 +86,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userName!!.text = snapshot.child("name").value as String
                 userFamily!!.text = snapshot.child("family").value as String
+                Global.FamilyName = snapshot.child("family").value as String
                 val media = snapshot.child("picture").value as String
                 if (media !== null) {
                     Glide.with(this@MainActivity)

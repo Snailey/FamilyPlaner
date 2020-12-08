@@ -5,11 +5,9 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +27,6 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.*
-import java.io.File
 
 
 class ProfileFragment : Fragment() {
@@ -62,7 +59,7 @@ class ProfileFragment : Fragment() {
         mDatabaseReference = mDatabase!!.reference.child(NODE_USER)
         mAuth = FirebaseAuth.getInstance()
 
-        userName = view.findViewById(R.id.edit_text_name)
+        userName = view.findViewById(R.id.set_text_location)
         userFamily = view.findViewById(R.id.edit_text_family)
         saveBtn = view.findViewById(R.id.button_save)
         emailTxt = view.findViewById(R.id.text_email)

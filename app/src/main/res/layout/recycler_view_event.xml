@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -14,12 +15,28 @@
             android:layout_toStartOf="@id/layout_options"
             android:orientation="vertical"
             android:padding="12dp">
-            <TextView
-                android:id="@+id/text_view_location"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
-                tools:text="ToDo" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_view_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    tools:text="Aktivitet"/>
+                <TextView
+                    android:id="@+id/text_view_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="20sp"
+                    tools:text="Sted" />
+            </LinearLayout>
         </RelativeLayout>
         <LinearLayout
             android:id="@+id/layout_options"
@@ -32,21 +49,20 @@
                 android:id="@+id/button_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/ic_edit"
-                android:contentDescription="@string/edit_todo"/>
+                android:contentDescription="@string/edit_shopping"/>
             <ImageButton
                 android:id="@+id/button_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/ic_delete"
-                android:contentDescription="@string/delete_todo"/>
+                android:contentDescription="@string/delete_shopping"/>
         </LinearLayout>
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#e9e9e9" />
-
+        android:background="#e9e9e9"/>
 </LinearLayout>
