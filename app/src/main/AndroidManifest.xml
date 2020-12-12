@@ -25,6 +25,7 @@
         <activity android:name=".ui.auth.RegisterActivity" />
         <activity android:name=".ui.MainActivity"/>
         <activity android:name=".ui.auth.ResetPasswordActivity"/>
+        <activity android:name=".ui.calendar.AddEventActivity"/>
 
     </application>
 

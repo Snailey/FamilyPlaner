@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.*
+import no.hiof.snailey.familyplaner.Global
 import no.hiof.snailey.familyplaner.data.Event
 import no.hiof.snailey.familyplaner.data.NODE_CALENDAR
 import java.lang.Exception
 
 class EventsViewModel : ViewModel() {
-
-    private val dbEvent = FirebaseDatabase.getInstance().getReference("Martinsen")
 
     private val _events = MutableLiveData<List<Event>>()
     val events: LiveData<List<Event>>
@@ -25,6 +24,7 @@ class EventsViewModel : ViewModel() {
         get() = _result
 
     fun addEvent(event: Event) {
+        val dbEvent = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_CALENDAR)
         event.id = dbEvent.push().key
         dbEvent.child(event.id!!).setValue(event)
             .addOnCompleteListener {
@@ -62,10 +62,12 @@ class EventsViewModel : ViewModel() {
     }
 
     fun getRealtimeUpdates() {
+        val dbEvent = FirebaseDatabase.getInstance().getReference("martinsen").child(NODE_CALENDAR)
         dbEvent.addChildEventListener(childEventListener)
     }
 
     fun fetchEvents() {
+        val dbEvent = FirebaseDatabase.getInstance().getReference("martinsen").child(NODE_CALENDAR)
         dbEvent.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
@@ -84,6 +86,7 @@ class EventsViewModel : ViewModel() {
     }
 
     fun updateEvent(event: Event) {
+        val dbEvent = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_CALENDAR)
         dbEvent.child(event.id!!).setValue(event)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -95,6 +98,7 @@ class EventsViewModel : ViewModel() {
     }
 
     fun deleteEvent(event: Event) {
+        val dbEvent = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_CALENDAR)
         dbEvent.child(event.id!!).setValue(null)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -106,6 +110,7 @@ class EventsViewModel : ViewModel() {
     }
 
     override fun onCleared() {
+        val dbEvent = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_CALENDAR)
         super.onCleared()
         dbEvent.removeEventListener(childEventListener)
     }

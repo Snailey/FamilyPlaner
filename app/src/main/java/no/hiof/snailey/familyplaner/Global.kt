@@ -7,6 +7,15 @@ import com.google.firebase.database.*
 class Global : Application() {
 
     companion object {
-        lateinit var FamilyName: String
+        lateinit var setFamilyName: String
+
+       @JvmField
+       var familyName = String
     }
+
+
+    fun setFamileyName(name: String) {
+        familyName = String
+    }
+
 }

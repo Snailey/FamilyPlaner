@@ -59,7 +59,7 @@ class ProfileFragment : Fragment() {
         mDatabaseReference = mDatabase!!.reference.child(NODE_USER)
         mAuth = FirebaseAuth.getInstance()
 
-        userName = view.findViewById(R.id.set_text_location)
+        userName = view.findViewById(R.id.event_location)
         userFamily = view.findViewById(R.id.edit_text_family)
         saveBtn = view.findViewById(R.id.button_save)
         emailTxt = view.findViewById(R.id.text_email)

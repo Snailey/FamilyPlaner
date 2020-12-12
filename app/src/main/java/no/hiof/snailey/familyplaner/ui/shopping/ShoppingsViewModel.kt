@@ -25,7 +25,7 @@ class ShoppingsViewModel : ViewModel() {
 
     fun addShopping(shopping: Shopping) {
 
-        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_SHOPPING)
+        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_SHOPPING)
         shopping.id = dbShopping.push().key
         dbShopping.child(shopping.id!!).setValue(shopping)
             .addOnCompleteListener {
@@ -63,12 +63,12 @@ class ShoppingsViewModel : ViewModel() {
     }
 
     fun getRealtimeUpdates() {
-        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_SHOPPING)
+        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_SHOPPING)
         dbShopping.addChildEventListener(childEventListener)
     }
 
     fun fetchShoppings() {
-        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_SHOPPING)
+        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_SHOPPING)
         dbShopping.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
 
@@ -87,7 +87,7 @@ class ShoppingsViewModel : ViewModel() {
     }
 
     fun updateShopping(shopping: Shopping) {
-        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_SHOPPING)
+        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_SHOPPING)
         dbShopping.child(shopping.id!!).setValue(shopping)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -99,7 +99,7 @@ class ShoppingsViewModel : ViewModel() {
     }
 
     fun deleteShopping(shopping: Shopping) {
-        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_SHOPPING)
+        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_SHOPPING)
         dbShopping.child(shopping.id!!).setValue(null)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -111,7 +111,7 @@ class ShoppingsViewModel : ViewModel() {
     }
 
     override fun onCleared() {
-        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.FamilyName).child(NODE_SHOPPING)
+        val dbShopping = FirebaseDatabase.getInstance().getReference(Global.setFamilyName).child(NODE_SHOPPING)
         super.onCleared()
         dbShopping.removeEventListener(childEventListener)
     }

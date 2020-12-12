@@ -44,7 +44,7 @@ class AddShoppingDialogFragment : DialogFragment() {
         })
 
         button_add.setOnClickListener {
-            val name = set_text_location.text.toString().trim()
+            val name = event_location.text.toString().trim()
             if (name.isEmpty()) {
                 input_layout_name.error = getString(R.string.error_field_required)
                 return@setOnClickListener

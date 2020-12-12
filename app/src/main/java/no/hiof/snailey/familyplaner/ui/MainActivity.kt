@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 userName!!.text = snapshot.child("name").value as String
                 userFamily!!.text = snapshot.child("family").value as String
-                Global.FamilyName = snapshot.child("family").value as String
+                Global.setFamilyName = snapshot.child("family").value as String
                 val media = snapshot.child("picture").value as String
                 if (media !== null) {
                     Glide.with(this@MainActivity)

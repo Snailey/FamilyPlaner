@@ -20,7 +20,7 @@ import no.hiof.snailey.familyplaner.ui.MainActivity
 class LogInActivity : AppCompatActivity() {
 
     private var signInMail: EditText? = null
-    private var signInPass:EditText? = null
+    private var signInPass: EditText? = null
     private var signInButton: Button? = null
     private var registerButton: Button? = null
     private var forgotPassword: TextView? = null
@@ -30,11 +30,11 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        auth = FirebaseAuth.getInstance();
-        auth!!.addAuthStateListener(authStateListener);
+        auth = FirebaseAuth.getInstance()
+        auth!!.addAuthStateListener(authStateListener)
 
-        signInMail = findViewById(R.id.text_email);
-        signInPass = findViewById(R.id.text_password);
+        signInMail = findViewById(R.id.text_email)
+        signInPass = findViewById(R.id.text_password)
         signInButton = findViewById<Button>(R.id.btn_register)
         registerButton = findViewById<Button>(R.id.btn_cancel)
         forgotPassword = findViewById<TextView>(R.id.text_forgot)

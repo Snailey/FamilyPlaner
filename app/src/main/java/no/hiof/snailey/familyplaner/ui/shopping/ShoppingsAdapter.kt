@@ -21,8 +21,8 @@ class ShoppingsAdapter : RecyclerView.Adapter<ShoppingsAdapter.ShoppingViewModel
     override fun getItemCount() = shoppings.size
 
     override fun onBindViewHolder(holder: ShoppingViewModel, position: Int) {
-        holder.view.text_view_location.text = shoppings[position].name
-        holder.view.text_view_title.text = shoppings[position].number.toString()
+        holder.view.text_view_name.text = shoppings[position].name
+        holder.view.text_view_number.text = shoppings[position].number.toString()
         holder.view.button_edit.setOnClickListener {
             listener?.onRecyclerViewItemClicked(it, shoppings[position])
         }

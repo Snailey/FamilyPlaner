@@ -35,7 +35,7 @@ class EditDialogFragment(
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        set_text_location.setText(shopping.name)
+        event_location.setText(shopping.name)
 
         viewModel.result.observe(viewLifecycleOwner, Observer {
             val message = if (it == null) {
@@ -48,7 +48,7 @@ class EditDialogFragment(
         })
 
         button_add.setOnClickListener {
-            val name = set_text_location.text.toString().trim()
+            val name = event_location.text.toString().trim()
             if (name.isEmpty()) {
                 input_layout_name.error = getString(R.string.error_field_required)
                 return@setOnClickListener

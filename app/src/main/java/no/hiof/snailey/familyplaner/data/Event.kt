@@ -1,10 +1,10 @@
 package no.hiof.snailey.familyplaner.data
 
 import com.google.firebase.database.Exclude
+import com.google.firebase.database.IgnoreExtraProperties
 
+@IgnoreExtraProperties
 class Event(
-    @get:Exclude
-    var id: String? = null,
     var title: String? = null,
     var location: String? = null,
     var day: Int? = null,
@@ -13,7 +13,9 @@ class Event(
     var hour: Int? = null,
     var minute: Int? = null,
     @get:Exclude
-    var isDeleted: Boolean = false
+    var isDeleted: Boolean = false,
+    @get:Exclude
+    var id: String? = null,
 ) {
     override fun equals(other: Any?): Boolean {
         return if (other is Shopping) {

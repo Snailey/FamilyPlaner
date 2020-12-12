@@ -1,4 +1,4 @@
-package no.hiof.snailey.familyplaner.ui.todo
+package no.hiof.snailey.familyplaner.ui.calendar
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -8,59 +8,60 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.fragment_todos.*
+import kotlinx.android.synthetic.main.fragment_calendar.*
 import no.hiof.snailey.familyplaner.R
-import no.hiof.snailey.familyplaner.data.ToDo
+import no.hiof.snailey.familyplaner.data.Event
 
-class ToDosFragment() : Fragment(), RecyclerViewClickListener {
+class CalendarFragment : Fragment(), RecyclerViewClickListener {
 
-    private lateinit var viewModel: ToDosViewModel
-    private val adapter = ToDosAdapter()
+    private lateinit var viewModel: EventsViewModel
+    private val adapter = EventsAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(ToDosViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_todos, container, false)
+        viewModel = ViewModelProviders.of(this).get(EventsViewModel::class.java)
+        return inflater.inflate(R.layout.fragment_calendar, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         adapter.listener = this
-        recycler_view_todos.adapter = adapter
+        recycler_view_events.adapter = adapter
 
-        viewModel.fetchToDos()
+        viewModel.fetchEvents()
         viewModel.getRealtimeUpdates()
 
-        viewModel.todos.observe(viewLifecycleOwner, Observer {
-            adapter.setTodos(it)
+        viewModel.events.observe(viewLifecycleOwner, Observer {
+            adapter.setEvents(it)
         })
 
-        viewModel.toDo.observe(viewLifecycleOwner, Observer {
-            adapter.addTodos(it)
+        viewModel.event.observe(viewLifecycleOwner, Observer {
+            adapter.addEvent(it)
         })
 
         button_add.setOnClickListener {
-            AddToDoDialogFragment()
+            AddEventDialogFragment()
                 .show(childFragmentManager, "")
         }
     }
 
-    override fun onRecyclerViewItemClicked(view: View, toDo: ToDo) {
+    override fun onRecyclerViewItemClicked(view: View, event: Event) {
         when (view.id) {
             R.id.button_edit -> {
-                EditToDoDialogFragment(toDo).show(childFragmentManager, "")
+                EditDialogFragment(event).show(childFragmentManager, "")
             }
             R.id.button_delete -> {
                 AlertDialog.Builder(requireContext()).also {
                     it.setTitle(getString(R.string.delete_confirmation))
                     it.setPositiveButton(getString(R.string.yes)) { dialog, which ->
-                        viewModel.deleteTodo(toDo)
+                        viewModel.deleteEvent(event)
                     }
                 }.create().show()
             }
         }
     }
 }
+
