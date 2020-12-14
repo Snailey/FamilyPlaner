@@ -2,6 +2,7 @@ package no.hiof.snailey.familyplaner.data
 
 import com.google.firebase.database.Exclude
 
+
 data class ToDo(
     @get:Exclude
     var id: String? = null,

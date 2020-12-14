@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.dialog_fragment_add_todo.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.ToDo
 
+
 class EditToDoDialogFragment(private val toDo: ToDo) : DialogFragment() {
 
     private lateinit var viewModel: ToDosViewModel

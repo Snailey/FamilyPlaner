@@ -1,3 +1,4 @@
+// Denne koden er "lånt" fra  et eksempel på GitHub
 package no.hiof.snailey.familyplaner.ui.calendar
 
 import android.app.Dialog
@@ -7,6 +8,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import java.util.*
+
 
 class CustomTimePicker : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

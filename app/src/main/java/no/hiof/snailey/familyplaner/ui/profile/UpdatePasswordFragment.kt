@@ -20,7 +20,6 @@ class UpdatePasswordFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_update_password, container, false)
     }
 
@@ -40,7 +39,6 @@ class UpdatePasswordFragment : Fragment() {
                 return@setOnClickListener
             }
 
-
             currentUser?.let { user ->
                 val credential = EmailAuthProvider.getCredential(user.email!!, password)
                 user.reauthenticate(credential)
@@ -57,7 +55,6 @@ class UpdatePasswordFragment : Fragment() {
                         }
                     }
             }
-
         }
 
         button_delete_user.setOnClickListener {
@@ -89,5 +86,4 @@ class UpdatePasswordFragment : Fragment() {
             }
         }
     }
-
 }

@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.profile.ProfileFragment">
-
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="90dp"
@@ -18,7 +17,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <EditText
             android:id="@+id/event_location"
             android:layout_width="match_parent"
@@ -32,7 +30,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_view" />
-
         <EditText
             android:id="@+id/edit_text_family"
             android:layout_width="match_parent"
@@ -46,7 +43,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_location" />
-
         <TextView
             android:id="@+id/text_email"
             android:layout_width="wrap_content"
@@ -58,7 +54,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_save" />
-
         <TextView
             android:id="@+id/text_deleteuser"
             android:layout_width="wrap_content"
@@ -72,7 +67,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_password" />
-
         <TextView
             android:id="@+id/text_password"
             android:layout_width="wrap_content"
@@ -85,7 +79,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_email" />
-
         <Button
             android:id="@+id/button_save"
             android:layout_width="match_parent"
@@ -108,7 +101,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_deleteuser" />
-
         <Switch
             android:id="@+id/switch1"
             android:layout_width="wrap_content"
@@ -120,7 +112,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_save"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
-
         <ImageView
             android:id="@+id/btn_take_photo"
             android:layout_width="wrap_content"
@@ -130,7 +121,6 @@
             app:layout_constraintEnd_toStartOf="@+id/image_view"
             app:layout_constraintTop_toTopOf="@+id/image_view"
             app:srcCompat="@drawable/ic_camera" />
-
         <ImageView
             android:id="@+id/btn_chose_picture"
             android:layout_width="wrap_content"

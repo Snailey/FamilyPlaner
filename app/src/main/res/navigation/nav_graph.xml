@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/calendarFragment">
-
     <fragment
         android:id="@+id/calendarFragment"
         android:name="no.hiof.snailey.familyplaner.ui.calendar.CalendarFragment"
@@ -52,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="net.simplifiedcoding.firebaseauthtutorial.ui.fragments.ProfileFragment"
+        android:name="no.hiof.snailey.familyplaner.ui.profile.ProfileFragment"
         android:label="ProfileFragment" >
         <action
             android:id="@+id/action_profileFragment_to_shoppingsFragment"

@@ -10,18 +10,18 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_reset_password.*
 import no.hiof.snailey.familyplaner.R
 
-class ResetPasswordActivity : AppCompatActivity() {
-    private var ResetPassword: Button? = null
-    private var CancelButton: Button? = null
 
+class ResetPasswordActivity : AppCompatActivity() {
+    private var resetPassword: Button? = null
+    private var cancelButton: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reset_password)
-        ResetPassword = findViewById<Button>(R.id.btn_reset_password)
-        CancelButton = findViewById<Button>(R.id.btn_cancel)
+        resetPassword = findViewById<Button>(R.id.btn_reset_password)
+        cancelButton = findViewById<Button>(R.id.btn_cancel)
 
-        ResetPassword!!.setOnClickListener {
+        resetPassword!!.setOnClickListener {
             val email = text_email.text.toString().trim()
 
             if (email.isEmpty()) {
@@ -48,7 +48,7 @@ class ResetPasswordActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        CancelButton!!.setOnClickListener {
+        cancelButton!!.setOnClickListener {
             val intent = Intent(applicationContext, LogInActivity::class.java)
             startActivity(intent)
         }

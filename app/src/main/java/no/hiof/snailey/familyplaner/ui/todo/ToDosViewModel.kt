@@ -10,6 +10,7 @@ import no.hiof.snailey.familyplaner.data.ToDo
 import no.hiof.snailey.familyplaner.data.NODE_TODOS
 import java.lang.Exception
 
+
 class ToDosViewModel : ViewModel() {
 
     private val _todos = MutableLiveData<List<ToDo>>()

@@ -3,6 +3,7 @@ package no.hiof.snailey.familyplaner.data
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 
+
 @IgnoreExtraProperties
 class Event(
     var title: String? = null,

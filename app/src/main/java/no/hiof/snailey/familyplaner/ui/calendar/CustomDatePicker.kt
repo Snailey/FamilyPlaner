@@ -1,3 +1,4 @@
+// Denne koden er "lånt" fra  et eksempel på GitHub
 package no.hiof.snailey.familyplaner.ui.calendar
 
 import android.app.DatePickerDialog
@@ -7,6 +8,7 @@ import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import java.util.*
+
 
 class CustomDatePicker : DialogFragment() {
     // This class shows a DatePicker Dialog Box when instantiated
@@ -28,6 +30,6 @@ class CustomDatePicker : DialogFragment() {
         val onDateSetListener = activity as OnDateSetListener?
 
         // Instantiate a new DatePickerDialog with all the parameters above, and return it
-        return DatePickerDialog(context!!, onDateSetListener, year, month, dayOfMonth)
+        return DatePickerDialog(requireContext(), onDateSetListener, year, month, dayOfMonth)
     }
 }

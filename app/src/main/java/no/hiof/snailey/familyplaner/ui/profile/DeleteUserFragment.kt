@@ -28,7 +28,6 @@ class DeleteUserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_delete_user, container, false)
     }
 
@@ -40,7 +39,6 @@ class DeleteUserFragment : Fragment() {
         layoutPassword.visibility = View.VISIBLE
         layoutUpdateEmail.visibility = View.GONE
 
-
         button_authenticate.setOnClickListener {
 
             val password = edit_text_password.text.toString().trim()
@@ -50,7 +48,6 @@ class DeleteUserFragment : Fragment() {
                 edit_text_password.requestFocus()
                 return@setOnClickListener
             }
-
 
             currentUser?.let { user ->
                 val credential = EmailAuthProvider.getCredential(user.email!!, password)
@@ -68,15 +65,12 @@ class DeleteUserFragment : Fragment() {
                         }
                     }
             }
-
         }
 
         button_delete_user.setOnClickListener { view ->
 
-            // reltime database
             mDatabaseReference?.child(currentUser!!.uid)?.removeValue()
 
-            //auth
             FirebaseAuth.getInstance().currentUser!!.delete()
 
             //pauser 2 sec for at mobilen skal få med seg at bruker blir slettet/logget ut

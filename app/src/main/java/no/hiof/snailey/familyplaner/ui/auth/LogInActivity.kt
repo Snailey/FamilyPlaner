@@ -56,12 +56,10 @@ class LogInActivity : AppCompatActivity() {
                         .show()
                     return
                 }
-                //authenticate user
                 auth!!.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this@LogInActivity,
                         OnCompleteListener<AuthResult?> { task ->
                             if (!task.isSuccessful) {
-                                // there was an error
                                 if (password.length < 6) {
                                     Toast.makeText(
                                         applicationContext,
@@ -92,7 +90,6 @@ class LogInActivity : AppCompatActivity() {
                 navigateForgotPassword()
             }
         })
-
     }
 
     private var authStateListener =

@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.recycler_view_todo.view.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.ToDo
 
+
 class ToDosAdapter : RecyclerView.Adapter<ToDosAdapter.ToDoViewModel>() {
 
     private var todos = mutableListOf<ToDo>()

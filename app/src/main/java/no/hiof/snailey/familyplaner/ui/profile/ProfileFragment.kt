@@ -100,7 +100,6 @@ class ProfileFragment : Fragment() {
             updateUserToFirebaseDatabase(picture)
         }
 
-
         emailTxt!!.setOnClickListener {
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragment, UpdateEmailFragment())

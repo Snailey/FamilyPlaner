@@ -21,7 +21,6 @@ class UpdateEmailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_update_email, container, false)
     }
 
@@ -30,7 +29,6 @@ class UpdateEmailFragment : Fragment() {
 
         layoutPassword.visibility = View.VISIBLE
         layoutUpdateEmail.visibility = View.GONE
-
 
         button_authenticate.setOnClickListener {
 
@@ -41,7 +39,6 @@ class UpdateEmailFragment : Fragment() {
                 edit_text_password.requestFocus()
                 return@setOnClickListener
             }
-
 
             currentUser?.let { user ->
                 val credential = EmailAuthProvider.getCredential(user.email!!, password)
@@ -56,11 +53,9 @@ class UpdateEmailFragment : Fragment() {
                                 edit_text_password.error = "Passordet er feil"
                                 edit_text_password.requestFocus()
                             }
-                            //else -> context?.toast(task.exception?.message!!)
                         }
                     }
             }
-
         }
 
         button_delete_user.setOnClickListener { view ->
@@ -91,5 +86,4 @@ class UpdateEmailFragment : Fragment() {
             }
         }
     }
-
 }

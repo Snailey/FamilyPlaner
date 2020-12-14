@@ -25,6 +25,7 @@ import no.hiof.snailey.familyplaner.ui.profile.ProfileFragment
 import no.hiof.snailey.familyplaner.ui.shopping.ShoppingsFragment
 import no.hiof.snailey.familyplaner.ui.todo.ToDosFragment
 
+
 class MainActivity : AppCompatActivity() {
 
     private var userName: TextView? = null
@@ -179,6 +180,3 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 }
-
-
-

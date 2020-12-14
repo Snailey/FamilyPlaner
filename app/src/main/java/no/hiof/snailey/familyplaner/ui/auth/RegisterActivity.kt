@@ -1,6 +1,5 @@
 package no.hiof.snailey.familyplaner.ui.auth
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -21,12 +20,12 @@ import no.hiof.snailey.familyplaner.ui.MainActivity
 
 class RegisterActivity : AppCompatActivity() {
 
-    private var SignUpMail: EditText? = null
-    private var SignUpPass:EditText? = null
-    private var text_name:EditText? = null
-    private var text_family:EditText? = null
-    private var SignUpButton: Button? = null
-    private var CancelButton: Button? = null
+    private var signUpMail: EditText? = null
+    private var signUpPass:EditText? = null
+    private var textName:EditText? = null
+    private var textFamily:EditText? = null
+    private var signUpButton: Button? = null
+    private var cancelButton: Button? = null
     private var auth: FirebaseAuth? = null
 
     private val dbUser = FirebaseDatabase.getInstance().getReference(NODE_USER)
@@ -34,17 +33,17 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        SignUpMail = findViewById(R.id.text_email)
-        SignUpPass = findViewById(R.id.text_password)
-        text_name = findViewById(R.id.text_name)
-        text_family = findViewById(R.id.edit_text_family)
+        signUpMail = findViewById(R.id.text_email)
+        signUpPass = findViewById(R.id.text_password)
+        textName = findViewById(R.id.text_name)
+        textFamily = findViewById(R.id.edit_text_family)
         auth = FirebaseAuth.getInstance()
-        SignUpButton = findViewById<Button>(R.id.btn_register)
-        CancelButton = findViewById<Button>(R.id.btn_cancel)
+        signUpButton = findViewById<Button>(R.id.btn_register)
+        cancelButton = findViewById<Button>(R.id.btn_cancel)
 
-        SignUpButton!!.setOnClickListener(View.OnClickListener {
-            val email = SignUpMail!!.text.toString()
-            val pass: String = SignUpPass!!.text.toString()
+        signUpButton!!.setOnClickListener(View.OnClickListener {
+            val email = signUpMail!!.text.toString()
+            val pass: String = signUpPass!!.text.toString()
             if (TextUtils.isEmpty(email)) {
                 Toast.makeText(
                     applicationContext,
@@ -88,16 +87,16 @@ class RegisterActivity : AppCompatActivity() {
             }
         })
 
-       CancelButton!!.setOnClickListener {
+       cancelButton!!.setOnClickListener {
                 val intent = Intent(applicationContext, LogInActivity::class.java)
                 startActivity(intent)
         }
     }
 
     private fun registerUserInfo() {
-        val name = text_name?.text.toString().trim()
-        val email = SignUpMail?.text.toString().trim()
-        val family = text_family?.text.toString().trim()
+        val name = textName?.text.toString().trim()
+        val email = signUpMail?.text.toString().trim()
+        val family = textFamily?.text.toString().trim()
         val picture = "https://firebasestorage.googleapis.com/v0/b/familyplaner-3842b.appspot.com/o/profile.jpg?alt=media&token=91495986-b255-46b0-be3a-43cb0c115223"
 
         val user = auth?.currentUser

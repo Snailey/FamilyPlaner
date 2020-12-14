@@ -11,10 +11,10 @@ import no.hiof.snailey.familyplaner.data.Event
 import no.hiof.snailey.familyplaner.ui.calendar.EventsAdapter.MyViewHolder
 import java.util.*
 
-class EventsAdapter(eventsList: ArrayList<*>) : RecyclerView.Adapter<MyViewHolder>() {
-    private val eventsList: ArrayList<Event>
-    var listener: RecyclerViewClickListener? = null
 
+class EventsAdapter(eventsList: ArrayList<*>) : RecyclerView.Adapter<MyViewHolder>() {
+    private val eventsList: ArrayList<Event> = eventsList as ArrayList<Event>
+    var listener: RecyclerViewClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
@@ -44,9 +44,4 @@ class EventsAdapter(eventsList: ArrayList<*>) : RecyclerView.Adapter<MyViewHolde
         var dateView: TextView = itemView.findViewById(R.id.event_list_date)
         var timeView: TextView = itemView.findViewById(R.id.event_list_time)
     }
-
-    init {
-        this.eventsList = eventsList as ArrayList<Event>
-    }
-
 }

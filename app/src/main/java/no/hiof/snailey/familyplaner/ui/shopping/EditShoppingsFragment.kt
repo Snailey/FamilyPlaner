@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.dialog_fragment_add_shopping.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.Shopping
 
+
 class EditDialogFragment(
     private val shopping: Shopping
 ) : DialogFragment() {

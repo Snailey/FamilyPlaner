@@ -9,6 +9,7 @@ import no.hiof.snailey.familyplaner.data.NODE_SHOPPING
 import no.hiof.snailey.familyplaner.data.Shopping
 import java.lang.Exception
 
+
 class ShoppingsViewModel : ViewModel() {
 
     private val _shoppings = MutableLiveData<List<Shopping>>()

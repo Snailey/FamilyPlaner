@@ -83,7 +83,6 @@
             app:layout_constraintEnd_toEndOf="@+id/new_event_timeview"
             app:layout_constraintTop_toTopOf="@+id/new_event_timeview"
             app:srcCompat="@drawable/ic_baseline_access_time_24" />
-
         <Button
             android:id="@+id/new_event_save_button"
             android:layout_width="match_parent"
@@ -98,6 +97,5 @@
             app:layout_constraintHorizontal_bias="0.301"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/new_event_dateview" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

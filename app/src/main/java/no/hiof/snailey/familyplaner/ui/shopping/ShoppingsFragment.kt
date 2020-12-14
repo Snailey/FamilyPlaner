@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_shopping.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.Shopping
 
+
 class ShoppingsFragment : Fragment(), RecyclerViewClickListener {
 
     private lateinit var viewModel: ShoppingsViewModel

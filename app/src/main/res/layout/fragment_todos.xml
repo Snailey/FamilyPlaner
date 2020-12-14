@@ -22,7 +22,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/recycler_view_todo" />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/button_add"
             android:layout_width="wrap_content"

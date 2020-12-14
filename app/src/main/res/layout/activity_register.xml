@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.auth.RegisterActivity">
-
         <EditText
             android:id="@+id/text_password"
             android:layout_width="match_parent"
@@ -25,7 +24,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_email" />
-
         <EditText
             android:id="@+id/edit_text_family"
             android:layout_width="match_parent"
@@ -40,7 +38,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_password" />
-
         <EditText
             android:id="@+id/text_email"
             android:layout_width="match_parent"
@@ -56,7 +53,6 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_name" />
-
         <EditText
             android:id="@+id/text_name"
             android:layout_width="match_parent"
@@ -86,7 +82,6 @@
             android:text="@string/name"
             app:layout_constraintBottom_toTopOf="@+id/text_name"
             app:layout_constraintStart_toStartOf="@+id/text_name" />
-
         <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"
@@ -99,7 +94,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_text_family" />
-
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="match_parent"

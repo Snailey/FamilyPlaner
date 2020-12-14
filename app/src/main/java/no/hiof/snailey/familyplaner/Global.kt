@@ -4,6 +4,8 @@ import android.app.Application
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+
+
 class Global : Application() {
 
     companion object {
@@ -13,9 +15,7 @@ class Global : Application() {
        var familyName = String
     }
 
-
     fun setFamileyName(name: String) {
         familyName = String
     }
-
 }

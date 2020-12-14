@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.recycler_view_shopping.view.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.Shopping
 
+
 class ShoppingsAdapter : RecyclerView.Adapter<ShoppingsAdapter.ShoppingViewModel>() {
 
     private var shoppings = mutableListOf<Shopping>()

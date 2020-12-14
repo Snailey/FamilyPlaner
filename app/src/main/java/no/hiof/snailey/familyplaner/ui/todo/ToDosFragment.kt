@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.fragment_todos.*
 import no.hiof.snailey.familyplaner.R
 import no.hiof.snailey.familyplaner.data.ToDo
 
+
 class ToDosFragment() : Fragment(), RecyclerViewClickListener {
 
     private lateinit var viewModel: ToDosViewModel

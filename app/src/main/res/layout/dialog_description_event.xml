@@ -5,21 +5,18 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".ui.shopping.ShoppingsFragment">
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/event_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
          />
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/event_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         />
-
     <EditText
         android:id="@+id/event_description"
         android:layout_width="match_parent"
@@ -28,14 +25,12 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine" />
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/event_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
          />
-
     <Button
         android:id="@+id/button_add"
         android:layout_width="match_parent"
